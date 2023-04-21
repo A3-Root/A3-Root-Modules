@@ -1,0 +1,40 @@
+===== VIDEOS =====
+Burper   = https://youtu.be/0Wls98mi1Ig
+Farmer   = https://youtu.be/mfWF1BIdDEM
+Flamer   = https://youtu.be/d37yHqQssJ4
+Screamer = https://youtu.be/bxf01jbmcCU
+Smuggler = https://youtu.be/0uC_OgCX1dE
+Steamer  = https://youtu.be/AItnFZ6TDsU
+Strigoi  = https://youtu.be/s5XlwiqqPXU
+Swarmer  = https://youtu.be/kaWCpzSkMiI
+Twins    = https://youtu.be/6vB7t1lhTRU
+Worm     = https://youtu.be/M_csHAMtDgM
+
+===== GIFS =====
+AIO      = https://imgur.com/a/FmXKs8M
+Burper   = [img]http://i.imgur.com/0yeQOIv.gif[/img]
+Farmer   = [img]http://i.imgur.com/GTpolsth.gif[/img]
+Flamer   = [img]http://i.imgur.com/xQlsU22.gif[/img]
+Screamer = [img]http://i.imgur.com/9ZU3G9t.gif[/img]
+Smuggler = [img]http://i.imgur.com/JGYihwh.gif[/img]
+Steamer  = [img]http://i.imgur.com/FN9yRUy.gif[/img]
+Strigoi  = [img]http://i.imgur.com/t3D4g6A.gif[/img]
+Swarmer  = [img]http://i.imgur.com/VIYrFKS.gif[/img]
+Twins    = [img]http://i.imgur.com/EbXKTPc.gif[/img]
+Worm     = [img]http://i.imgur.com/ILe4Buj.gif[/img]
+
+
+AIO                        = https://imgur.com/a/mp2A7Ae
+AAN News Article           = [img]https://i.imgur.com/6JG2r9Z.gif][/img]
+Ambient Fireflies & Sparks = [img]https://i.imgur.com/eFjyqKp.gif][/img]
+Anti Air Barrage           = [img]https://i.imgur.com/YWmlnQL.gif][/img]
+Artillery Barrage          = [img]https://i.imgur.com/tHRChtC.gif][/img]
+Aurora Borealis            = [img]https://i.imgur.com/JepgAJK.gif][/img]
+Floating Objects           = [img]https://i.imgur.com/jGnLk7n.gif][/img]
+Freeze Players             = [img]https://i.imgur.com/XqoUAX1.gif][/img]
+Meteors/Comets             = [img]https://i.imgur.com/gVgALft.gif][/img]
+Missile Launcher           = [img]https://i.imgur.com/tSFHysp.gif][/img]
+Searchlights               = [img]https://i.imgur.com/fKxoQrb.gif][/img]
+Spacetime Rupture          = [img]https://i.imgur.com/YqxQnQK.gif][/img]
+Tracers                    = [img]https://i.imgur.com/xH1QXnK.gif][/img]
+UFO                        = [img]https://i.imgur.com/c6YkvJ6.gif][/img]

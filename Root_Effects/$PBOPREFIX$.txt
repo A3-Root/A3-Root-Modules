@@ -1,0 +1,4 @@
+﻿//<'Root_Farmer.pbo' properties via Mikero's dos tools, dll version 7.46>
+prefix=Root_Effects;
+PboType=Arma Addon;
+//</properties>

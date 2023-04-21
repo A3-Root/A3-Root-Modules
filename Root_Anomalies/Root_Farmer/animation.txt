@@ -1,0 +1,24 @@
+0 = [this, car1] call BIS_fnc_attachToRelative;
+
+cargo_basebinoc
+
+ChopperLight_L_Out_H
+
+AmovPercMsprSnonWnonDf_AmovPpneMstpSnonWnonDnon
+
+
+
+
+
+AmovPercMstpSnonWnonDnon_AcinPknlMwlkSnonWnonDb_1
+
+AmovPercMstpSnonWnonDnon_AinvPknlMstpSnonWnonDnon
+
+AmovPercMstpSnonWnonDnon_AmovPknlMstpSnonWnonDnon
+
+AovrPercMrunSrasWrflDf
+
+
+plante
+
+"d_LianaTangle_wide_F"

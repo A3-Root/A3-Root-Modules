@@ -231,9 +231,25 @@ class CfgFunctions
 {
 	class Root
 	{
+		class RootBurperCategoryEffects
+		{
+			file = "\Root_Anomalies\Root_Burper\AL_burper\Effects";
+			class burperBlastEffect {};
+			class burperDisableEffect {};
+			class burperDamageEffect {};
+			class burperOnDestroyedEffect {};
+		};
 		class RootBurperCategory
 		{
-			class Burper {file = "\Root_Anomalies\Root_Burper\AL_burper\init_burper.sqf";};
+			file = "\Root_Anomalies\Root_Burper\AL_burper";
+
+			class burperMain {};
+			class hasBurperDetector {};
+			class burperAiAvoid {};
+		};
+		class RootBurperCategoryOLD
+		{
+			class Burper {file = "\Root_Anomalies\Root_Burper\AL_burper\init_burper.sqf";};	
 		};
 	};
 };

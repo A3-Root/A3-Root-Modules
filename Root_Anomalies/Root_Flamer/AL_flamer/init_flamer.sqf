@@ -33,12 +33,13 @@ _flamerMarker = createMarker [_flamerMarkerName, _pos];
 
 deleteVehicle _logic;
 
+// Ask if burn 
 ["Flamer Anomaly Settings", [
 	["SLIDER", ["Flamer Health", "Amount of damage the Flamer takes before being killed."], [10, 5000, 400, 0]], 
 	["TOOLBOX:YESNO", ["Override Minimum Territory", "If true, the minimum territory radius of the Flamer will be overriden from 75m."], false],
 	["SLIDER:RADIUS", ["Flamer Territory", "Radius in meters of the Flamer's territory."], [1, 1000, 75, 0, _pos, [7, 120, 32, 1]]], 
 	["SLIDER:PERCENT", ["Flamer Damage", "Percentage amount of damage the Flamer does to its target. Recommended to start from low and gradually increase to your preferred range."], [0.01, 1, 0.4, 2]], 
-	["TOOLBOX:YESNO", ["AI Panic", "If true, the AI will forcefully run away from Flamer during its attack."], false],
+	["TOOLBOX:YESNO", ["AI Burn", "If true, the AI will forcefully run away from Flamer during its attack."], false],
 	["SLIDER", ["Flamer Recharge Delay", "Delay in seconds between Flamer's attacks. Recommended to keep lower values."], [1, 60, 1, 0]], 
 	["SLIDER:PERCENT", ["Flamer Damage on Death", "Percentage amount of damage the Flamer does to the surrounding when it dies."], [0.01, 1, 1, 2]]
 	], {

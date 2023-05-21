@@ -15,7 +15,7 @@ if (!isNil "obj_prot_burper") then {
 while {alive _object_burp_damage} do 
 {
 	if (_vehicle_allowed == true) then {
-	_list_units_in_range = (position _object_burp_damage) nearEntities [["Man", "LandVehicle"], _burper_radius];
+		_list_units_in_range = (position _object_burp_damage) nearEntities [["Man", "LandVehicle"], _burper_radius];
 	} else {
 		_list_units_in_range = (position _object_burp_damage) nearEntities ["Man", _burper_radius];
 };
@@ -42,7 +42,7 @@ if (count _list_units_in_range>0) then
 		_x hideObjectGlobal true;
 		if !(_x isKindOf "LandVehicle") then { deletevehicle _x; };
 		_oase = createVehicle ["Land_HumanSkeleton_F", [getposATL _x select 0,getposATL _x select 1,1.5], [], 0, "CAN_COLLIDE"];
-		[[_oase],"\Root_Anomalies\Root_Burper\AL_burper\burper_splash_damage.sqf"] remoteExec ["execVM",0];
+		[_oase] remoteExec ["ROOT_fnc_burperDamageEffect",[0,-2] select isDedicated];
 		_balta_sange = createVehicle ["BloodSplatter_01_Medium_New_F", [getposATL _x select 0,getposATL _x select 1,0], [], 0, "CAN_COLLIDE"];
 		_oase setDir random 360;
 		_oase setVectorUp [0,-1,1];
@@ -76,7 +76,7 @@ if (count _list_units_in_range>0) then
 		_x hideObjectGlobal true;
 		if !(_x isKindOf "LandVehicle") then { deletevehicle _x; };
 		_oase = createVehicle ["Land_HumanSkeleton_F", [getposATL _x select 0,getposATL _x select 1,1.5], [], 0, "CAN_COLLIDE"];
-		[[_oase],"\Root_Anomalies\Root_Burper\AL_burper\burper_splash_damage.sqf"] remoteExec ["execVM",0];
+		[_oase] remoteExec ["ROOT_fnc_burperDamageEffect",[0,-2] select isDedicated];
 		_balta_sange = createVehicle ["BloodSplatter_01_Medium_New_F", [getposATL _x select 0,getposATL _x select 1,0], [], 0, "CAN_COLLIDE"];
 		_oase setVectorUp [0,-1,1];
 		[_object_burp_damage,["blood_splash",100]] remoteExec ["say3d",0];

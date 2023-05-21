@@ -1,0 +1,5 @@
+root_effects NEWS
+
+anomalies: flamer (cba error)
+
+one loop to check if near effect entity and server to check for ai's

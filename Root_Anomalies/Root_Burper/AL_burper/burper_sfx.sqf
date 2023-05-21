@@ -103,7 +103,7 @@ _work_obj = _this select 1;
 	_b_dir=0;
 	_h_bounce=0;
 	_sus= false;
-	while {((player distance _obj_anim)<1500)&&(ciclu_simplu!=ciclu_compli)&&(_work_obj getVariable "burper_activ")} do 
+	while {((player distance _obj_anim)<1500)&&(ciclu_simplu!=ciclu_compli)&&(_work_obj getVariable "isActive")} do 
 	{
 		if ((_h_bounce<0.61) and !_sus) then {_h_bounce = _h_bounce+0.01};
 		if (_h_bounce>0.61) then {_sus=true};
@@ -119,14 +119,14 @@ _work_obj = _this select 1;
 fnc_check_detector = {
 if (
 	(typeOf _this  == "VirtualCurator_F")or
-	(headgear _this  == detectiv_tool)or
-	(goggles _this ==detectiv_tool)or
-	(uniform _this ==detectiv_tool)or
-	(vest _this ==detectiv_tool)or
-	(Backpack _this ==detectiv_tool)or
-	(detectiv_tool in (assigneditems _this  + items _this))
+	(headgear _this  == ROOT_var_buperDetector)or
+	(goggles _this ==ROOT_var_buperDetector)or
+	(uniform _this ==ROOT_var_buperDetector)or
+	(vest _this ==ROOT_var_buperDetector)or
+	(Backpack _this ==ROOT_var_buperDetector)or
+	(ROOT_var_buperDetector in (assigneditems _this  + items _this))
 	/*
-	(detectiv_tool in (assigneditems _this  + items _this))or
+	(ROOT_var_buperDetector in (assigneditems _this  + items _this))or
 	(_this hasWeapon "hgun_esd_01_F")or
 	(_this hasWeapon "ACE_VMH3")or
 	(_this hasWeapon "ACE_VMM3")or

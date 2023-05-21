@@ -49,7 +49,8 @@ fnc_attk_flamer = {
 		{
 			if (_isacefire) then 
 			{
-				[_x, _dmg_fire] remoteExec ["ace_fire_fnc_burn", _x];
+				// if no weapon dont apply ace_fire_fnc_burn
+				[_x, _dmg_fire] remoteExec ["ace_fire_fnc_burn", _x]; // TODO OVERRIDE (copy from ace and fix)
 				[_x, (_damage_flamer/4), _bodyPart, "burning"] remoteExec ["ace_medical_fnc_addDamageToUnit", _x];
 			} else 
 			{

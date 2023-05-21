@@ -39,7 +39,7 @@
 			if (_x isKindOf "Man") then {
 			_bodyPart = ["RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm", "Head"];
 			_dmgType = selectRandom ["backblast", "explosive", "grenade", "punch", "ropeburn", "shell", "stab"];
-			for (_i from 0 to 5) do { [_x, 0.99, (_bodyPart select _i), _dmgType] call ace_medical_fnc_addDamageToUnit;
+			for "_i" from 0 to 5 do { [_x, 0.99, (_bodyPart select _i), _dmgType] call ace_medical_fnc_addDamageToUnit;
 			_x setDamage [1, false] }; } else { _x setdamage [1, false]; };
 		};
 		} else {_x setdamage [1,false]}} foreach _nearobjects;

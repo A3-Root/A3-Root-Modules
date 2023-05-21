@@ -3,7 +3,7 @@
 	
 if (!hasInterface) exitWith {};
 
-_splash_point = _this select 0;
+params ["_splash_point"];
 
 _blood_splash = "#particlesource" createVehicleLocal (getPosATL _splash_point);
 _blood_splash setParticleCircle [0, [0, 0, 0]];

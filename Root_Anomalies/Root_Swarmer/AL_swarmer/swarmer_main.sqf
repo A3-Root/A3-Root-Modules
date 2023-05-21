@@ -92,5 +92,5 @@ while {alive _mobile_s} do
 			_mobile_s stop false;
 		};
 	} else {_mobile_s setVariable ["isHive",false,true]; atak_swarmer = false; publicVariable "atak_swarmer"; uisleep 5};
-}:
+};
 uisleep 30; deleteVehicle _mobile_s;

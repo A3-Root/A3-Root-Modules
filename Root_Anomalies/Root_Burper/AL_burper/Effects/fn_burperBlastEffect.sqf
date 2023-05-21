@@ -1,11 +1,10 @@
 // ORIGINALLY CREATED BY ALIAS
 // MODIFIED BY ROOT 
 
-private ["_obj_neutr"];
 
 if (!hasInterface) exitWith {};
 
-_obj_neutr = _this select 0;
+params ["_obj_neutr"];
 
 if (player distance _obj_neutr < 300) then {
 	cutText ["", "WHITE OUT", 1];

@@ -71,7 +71,7 @@ deleteVehicle _logic;
 		_balta_sang = createVehicle ["BloodSplatter_01_Medium_New_F",[getmarkerPos _burperMarkerName select 0,getmarkerPos _burperMarkerName select 1,0], [], random 8, "CAN_COLLIDE"];
 		_balta_sang setdir (random 360);
 
-		[_object_anom_burp, _isroaming, _detectdevice, _protectdevice, _killdevice, _burper_territory, _isvehicle, _killswitch_range, _isaipanic] remoteExec ["ROOT_fnc_burperMain",0];
+		[_object_anom_burp, _isroaming, _detectdevice, _protectdevice, _killdevice, _burper_territory, _isvehicle, _killswitch_range, _isaipanic] call ROOT_fnc_initBurper;
 	}, {
 		["Aborted"] call zen_common_fnc_showMessage;
 		playSound "FD_Start_F";

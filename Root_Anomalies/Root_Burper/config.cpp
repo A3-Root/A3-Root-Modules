@@ -243,13 +243,14 @@ class CfgFunctions
 		{
 			file = "\Root_Anomalies\Root_Burper\AL_burper";
 
-			class burperMain {};
+			class initBurper {};
 			class hasBurperDetector {};
+			class hasBurperProtector {};
 			class burperAiAvoid {};
 		};
 		class RootBurperCategoryOLD
 		{
-			class Burper {file = "\Root_Anomalies\Root_Burper\AL_burper\init_burper.sqf";};	
+			class Burper {file = "\Root_Anomalies\Root_Burper\AL_burper\create_burper.sqf";};	
 		};
 	};
 };

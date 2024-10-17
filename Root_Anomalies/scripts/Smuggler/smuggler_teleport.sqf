@@ -6,7 +6,7 @@ fnc_teleportSFX_AI = {
     _ind = 3;
     while {_ind>0} do {
         _unit hideObjectglobal true;
-        sleep 0.2; _unit hideObjectglobal false;sleep 0.2;_ind = _ind-1
+        uiSleep 0.2; _unit hideObjectglobal false;uiSleep 0.2;_ind = _ind-1
     };
 };
 
@@ -100,5 +100,5 @@ while {alive _obj_teleporter} do {
         _list_vek_teleport = [];
         _list_teleport=[];
     };
-    sleep 2;
+    uiSleep 2;
 };

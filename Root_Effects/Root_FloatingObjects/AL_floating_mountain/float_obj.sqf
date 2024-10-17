@@ -70,7 +70,7 @@ if (_slide_vel>0) then
 					_incr=_incr+_al_slide_vel;
 					_new_poz=[_al_poz_ini, _incr, _dir_slide] call BIS_fnc_relPos;
 					_al_slide setposATL _new_poz;
-					sleep _sleep_slide;
+					uiSleep _sleep_slide;
 				};
 				
 				while {_incr>0} do 
@@ -78,7 +78,7 @@ if (_slide_vel>0) then
 					_incr=_incr-_al_slide_vel;
 					_new_poz=[_al_poz_ini, _incr, _dir_slide] call BIS_fnc_relPos;
 					_al_slide setposATL _new_poz;			
-					sleep _sleep_slide;
+					uiSleep _sleep_slide;
 				};
 			};	
 			waitUntil {(player distance _al_slide) < _al_dependent};
@@ -110,14 +110,14 @@ if (_bounce_speed>0) then
 				{
 				 _fct_float =_fct_float + _al_rock_bounce_speed;
 				 _al_rock_loc setPosATL [_al_poz_ini select 0, _al_poz_ini select 1, _fct_float];
-				 sleep _sleep_bounce;
+				 uiSleep _sleep_bounce;
 				};
 				
 				while {_fct_float>_alt_min} do
 				{
 				 _fct_float =_fct_float - _al_rock_bounce_speed;
 				 _al_rock_loc setPosATL [_al_poz_ini select 0, _al_poz_ini select 1, _fct_float];
-				 sleep _sleep_bounce;
+				 uiSleep _sleep_bounce;
 				};		
 			};
 			waitUntil {(player distance _al_rock_loc) < _al_dist_dependent};
@@ -141,7 +141,7 @@ if (_rot_vel>0) then
 			while {(player distance _al_rot) < _al_dist_dependent} do 
 			{
 				_al_rot setDir _ii;
-				sleep 0.01;
+				uiSleep 0.01;
 				_ii=_ii+_vit_rot;
 				if (_ii==360) then {_ii=0};
 				if (_ii==0) then {_ii=360};
@@ -169,16 +169,16 @@ if (_roll_vel>0) then
 				{
 					[_al_rost,_xx, 0] call BIS_fnc_setPitchBank;
 					_xx = _xx+0.1;
-					sleep _al_rost_vit;
+					uiSleep _al_rost_vit;
 				};
-				sleep random 0.2;
+				uiSleep random 0.2;
 				while {_xx > 0.1} do 
 				{
 					[_al_rost,_xx, 0] call BIS_fnc_setPitchBank;
 					_xx = _xx-0.1;
-					sleep _al_rost_vit;
+					uiSleep _al_rost_vit;
 				};
-				sleep 0.01;
+				uiSleep 0.01;
 			};
 			waitUntil {(player distance _al_rost) < _al_dist_dependent};
 		};
@@ -209,7 +209,7 @@ if (_orbit_radius>0) then
 				_pos_umbla = [_center,_al_orbit_radius,_rr] call BIS_fnc_relPos;
 				_al_orbit setPosAsL [_pos_umbla select 0,_pos_umbla select 1,_al_alt_obj select 2];
 				_rr =_rr + _fct*_al_obrit_speed;
-				sleep 0.01;
+				uiSleep 0.01;
 				if (_rr==360) then {_rr=0};
 			};
 			waitUntil {(player distance _al_orbit) < _al_dist_dependent};
@@ -225,7 +225,7 @@ if (_orbit_radius>0) then
 				
 				_rr =_rr + _fct*_al_obrit_speed;
 				if (_rr==0) then {_rr=360};	
-				sleep 0.01;
+				uiSleep 0.01;
 			};
 			waitUntil {(player distance _al_orbit) < _al_dist_dependent};
 		}

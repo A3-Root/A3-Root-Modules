@@ -64,7 +64,7 @@ deleteVehicle _logic;
 
 		["Burper Anomaly Configured and Created!"] call zen_common_fnc_showMessage;
 
-		[[_burperMarkerName, _isroaming, _detectdevice, _protectdevice, _killdevice, _burper_territory, _isvehicle, _killswitch_range, _isaipanic], "\Root_Anomalies\scripts\Burper\burper_main.sqf"] remoteExec ["BIS_fnc_execVM", 0];
+		[[_burperMarkerName, _isroaming, _detectdevice, _protectdevice, _killdevice, _burper_territory, _isvehicle, _killswitch_range, _isaipanic], "\Root_Anomalies\scripts\Burper\burper_main.sqf"] remoteExec ["BIS_fnc_execVM", 2];
 	}, {
 		["Aborted"] call zen_common_fnc_showMessage;
 		playSound "FD_Start_F";

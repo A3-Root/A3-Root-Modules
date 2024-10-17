@@ -2,7 +2,7 @@
 // MODIFIED BY ROOT 
 
 params ["_flamer", "_damage_on_death"];
-waitUntil {sleep 1; !alive _flamer};
+waitUntil {uiSleep 1; !alive _flamer};
 [[_flamer],"\Root_Anomalies\scripts\Flamer\flamer_end_SFX.sqf"] remoteExec ["execvm"];
 _burn_grnd_last = "Crater" createVehicle [getPosASL _flamer select 0,getPosASL _flamer select 1,0];
 _burn_grnd_last say3D ["close_bomb",300];

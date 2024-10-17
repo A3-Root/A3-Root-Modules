@@ -24,7 +24,7 @@ if (_spark_type=="orange") then
 	_scantei_spark setDropInterval _drop;
 
 	_obj_emit say3D [_sparky_sun, 350];
-	sleep _paz_emit;
+	uiSleep _paz_emit;
 	deleteVehicle _scantei_spark;
 } else
 	{
@@ -35,6 +35,6 @@ if (_spark_type=="orange") then
 		_scantei_spark setDropInterval 0.001;	
 		
 		_obj_emit say3D [_sparky_sun, 350];
-		sleep 0.1 +(random 0.4);
+		uiSleep 0.1 +(random 0.4);
 		deleteVehicle _scantei_spark;
 	};

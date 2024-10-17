@@ -28,6 +28,6 @@ if (!hasInterface) exitWith {};
 	while {!isNull _fall_meteor_smoke} do 
 	{
 		_fall_meteor_smoke say3D ["meteor_1",2000];
-		sleep 0.9;
+		uiSleep 0.9;
 	};
 	deleteVehicle _li2;

@@ -13,4 +13,4 @@ if (!isNil {_object_name getVariable "is_ON"}) exitwith {};
 _object_name setVariable ["is_ON",true,true];
 
 if (_delay_sound<0) then {[_object_name,[_sound_name,_distance_au]] remoteExec ["say3d"]} 
-else {while {!isNull _object_name} do {[_object_name,[_sound_name,_distance_au]] remoteExec ["say3d"];sleep _delay_sound}};
+else {while {!isNull _object_name} do {[_object_name,[_sound_name,_distance_au]] remoteExec ["say3d"];uiSleep _delay_sound}};

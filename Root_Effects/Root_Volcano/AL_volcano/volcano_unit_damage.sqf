@@ -32,6 +32,6 @@ while {volcano} do {
 				_x setDamage 1; } foreach _bodyPart;
                 } else { _x setDamage 1; };}} foreach _unit_dead;
 	};
-	sleep 2;
+	uiSleep 2;
 };
 

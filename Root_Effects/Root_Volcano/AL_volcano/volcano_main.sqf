@@ -29,13 +29,13 @@ if (_alias_delay>0) then
 			case "eruptie_2": {durata_eruptie = _sunet_eruptie#1; publicVariable "durata_eruptie"; erupt_s=_sunet_eruptie#0; publicVariable "erupt_s"; erupt_eko=_sunet_eruptie#2; publicVariable "erupt_eko"};
 			case "eruptie_3": {durata_eruptie = _sunet_eruptie#1; publicVariable "durata_eruptie"; erupt_s=_sunet_eruptie#0; publicVariable "erupt_s"; erupt_eko=_sunet_eruptie#2; publicVariable "erupt_eko"};
 		};
-		sleep 1;
+		uiSleep 1;
 		switch (shape_tip) do {
 			case "schije": {[[_volcano_object,_caldera_radius],"\Root_Effects\Root_Volcano\AL_volcano\volcano_schije.sqf"] remoteExec ["execVM"]};
 			case "puf": {[[_volcano_object,_caldera_radius],"\Root_Effects\Root_Volcano\AL_volcano\volcano_blow.sqf"] remoteExec ["execVM"]};
 			case "scantei": {[[_volcano_object,_caldera_radius],"\Root_Effects\Root_Volcano\AL_volcano\volcano_scantei.sqf"] remoteExec ["execVM"]};
 		};			
-		sleep _alias_delay;
+		uiSleep _alias_delay;
 	};
 };
 waituntil {!volcano};

@@ -26,7 +26,7 @@
 	[[_falling_meteor_main],"\Root_Effects\Root_Fallstar\ALfallstar\fallstar_meteoreffect.sqf"] remoteExec ["execVM"];
 
 	_falling_meteor_main setvelocity [_xx_dest/200,_yy_dest/200,-100];
-	waitUntil {sleep 0.1; (getpos _falling_meteor_main select 2)<20};
+	waitUntil {uiSleep 0.1; (getpos _falling_meteor_main select 2)<20};
 	_poz_end = getPos _falling_meteor_main;
 
 	[[_poz_end,_xx_dest/200,_yy_dest/200,_blast],"\Root_Effects\Root_Fallstar\ALfallstar\fallstar_meteor_end_blast.sqf"] remoteExec ["execVM"];

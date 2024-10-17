@@ -13,11 +13,11 @@ while {alive _wormkillerobj} do
 		{
 			if (!isNil{_x getVariable "isWorm"}) then 
 			{
-				sleep 4; 
+				uiSleep 4; 
 				deleteVehicle _x; 
 			};
 			if (typeOf _x == "land_CanOpener_F") then { deleteVehicle _x; };
 		} foreach _near_worm;
 	};
-	sleep 2;
+	uiSleep 2;
 }

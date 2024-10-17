@@ -11,7 +11,7 @@ if (!alive _strigoi) exitWith {};
 
 while {alive _strigoi} do 
 {
-	waitUntil {sleep 5; player distance _strigoi < 200};
+	waitUntil {uiSleep 5; player distance _strigoi < 200};
 	player setFatigue ((getfatigue player) + 0.2);
-	sleep 0.5;
+	uiSleep 0.5;
 };

@@ -9,10 +9,10 @@ enableCamShake true;
 _farmer setAnimSpeedCoef 0.1;
 _farmer switchmove "ChopperLight_L_Out_H";
 _farmer setVelocity [0,0,3];
-sleep 0.4;
+uiSleep 0.4;
 _farmer setAnimSpeedCoef 1.8; 
 _farmer switchmove "AmovPercMstpSnonWnonDnon_AmovPknlMstpSnonWnonDnon";
-sleep 0.2;
+uiSleep 0.2;
 
 playSound3D ["\Root_Anomalies\sounds\explozie_3.ogg", "", false, position _farmer, 20, 5, 0];
 
@@ -37,7 +37,7 @@ _persistent_dust setParticleCircle [10,[0,0,0]];
 _persistent_dust setParticleRandom [5,[5,5,2],[0,0,0],1,1,[0,0,0,0.1],0,0];
 _persistent_dust setParticleParams [["\A3\data_f\cl_basic",1,0,1],"","Billboard",1,8,[0,0,0],[0,0,0],3,10.15,7.9,0.1,[10,10,10],[[0.05,0.04,0.03,0.1],[0.05,0.04,0.03,0.3],[0.05,0.04,0.03,0]],[1],1, 0,"","",_farmer];
 _persistent_dust setDropInterval 0.01;
-[_persistent_dust] spawn {params ["_de_sters"]; sleep 1; deleteVehicle _de_sters};
+[_persistent_dust] spawn {params ["_de_sters"]; uiSleep 1; deleteVehicle _de_sters};
 
 _farmer say3d ["pietre",5000];
 for "_i" from 1 to 20 do {
@@ -64,7 +64,7 @@ for "_i" from 1 to 20 do {
 						};
 					};
 				};
-	sleep 0.05;
+	uiSleep 0.05;
 };
 player allowdamage true;
 if ((player distance _farmer)<20) then
@@ -84,7 +84,7 @@ if ((player distance _farmer)<20) then
 deletevehicle _bolovani;
 deletevehicle _burst;
 deletevehicle _blast_wave;
-sleep 1;
+uiSleep 1;
 _farmer switchmove "";
 playSound3D ["\Root_Anomalies\sounds\eko.ogg", "", false, [getpos _farmer select 0,getpos _farmer select 1,100], 20, 5, 0];
 

@@ -26,7 +26,7 @@ _curgere_lava_2 setDropInterval 0.1;
 _curgere_lava_2 setParticleFire [1,50,0.1];
 
 
-waitUntil {sleep 30; !isNull _volcano_object};
+waitUntil {uiSleep 30; !isNull _volcano_object};
 deleteVehicle _curgere_lava;
 deleteVehicle _curgere_lava_1;
 deleteVehicle _curgere_lava_2;

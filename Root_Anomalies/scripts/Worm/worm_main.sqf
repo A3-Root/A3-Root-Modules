@@ -59,7 +59,7 @@ if !(isClass (configFile >> "CfgPatches" >> "ace_medical_engine")) then {
 	_isacemedical = true;
 };
 
-sleep 2;
+uiSleep 2;
 
 _cap	= createvehicle ["land_CanOpener_F", getmarkerPos _poz_worm, [], 0, "CAN_COLLIDE"];
 _coada	= createvehicle ["land_CanOpener_F", getmarkerPos _poz_worm, [], 0, "CAN_COLLIDE"];
@@ -76,7 +76,7 @@ _coada_01 attachto [_coada, [0, -1, 1]];
 
 _hide_me = true;
 while {_hide_me} do {
-    sleep 2;
+    uiSleep 2;
     _list_ai_in_range_worm = (position _cap) nearEntities [["CAManBase", "LandVehicle"], _territory];
     if (count _list_ai_in_range_worm > 0) then {
         _hide_me = false;
@@ -109,11 +109,11 @@ while {_hide_me} do {
         [[_cap, _coada], "\Root_Anomalies\Root_Worm\AL_worm\worm_attack.sqf"] remoteExec ["execVM", 0];
         _cap setPosATL [getPosATL _cap select 0, getPosATL _cap select 1, 2];
         _cap setvelocity [_press_implicit_x * 5, _press_implicit_y * 5, 20 + random 10];
-        sleep 1;
+        uiSleep 1;
         [_coada, ["strigat", 1000]] remoteExec ["say3D"];
     };
 };
-sleep 1;
+uiSleep 1;
 enableCamShake false;
 waitUntil {
     (getPosATL _cap select 2) < 1
@@ -122,7 +122,7 @@ waitUntil {
 addCamShake [1, 4, 23];
 [[_cap, _coada], "\Root_Anomalies\Root_Worm\AL_worm\worm_attack.sqf"] remoteExec ["execVM", 0];
 [[_cap], "\Root_Anomalies\Root_Worm\AL_worm\worm_bump.sqf"] remoteExec ["execVM", 0];
-sleep 1;
+uiSleep 1;
 
 while {!isNull _cap} do {
     _tgt_worm = [];
@@ -158,7 +158,7 @@ while {!isNull _cap} do {
             _worm_salt = ["salt_08", "salt_05"] call BIS_fnc_selectRandom;
             _cap setvelocity [_press_implicit_x*5, _press_implicit_y*5, 15+random 10];
             [_coada, [_worm_salt, 500]] remoteExec ["say3D"];
-            sleep 0.5;
+            uiSleep 0.5;
             waitUntil {
                 (getPosATL _cap select 2) < 1
             };
@@ -186,12 +186,12 @@ while {!isNull _cap} do {
                     };
                 };
             } forEach _nearobj_wrom;
-            sleep 1;
+            uiSleep 1;
             if (_isaipanic) then { [_cap, _list_ai_in_range_worm] call fnc_avoid_worm; };
             if (((getPosATL _cap select 2) <0)or((getPosATL _cap select 2) >2)) then {
                 _cap setPos ([getPos _cap, 0.5, 50, 10, 0, 1, 0] call BIS_fnc_findSafePos)
             };
-            sleep 8;
+            uiSleep 8;
             _cap setPosATL [getPosATL _cap select 0, getPosATL _cap select 1, 2];
         };
         
@@ -226,10 +226,10 @@ while {!isNull _cap} do {
             };
             [_coada, [_sunet_deplas, 500]] remoteExec ["say3D"];
             _cap setvelocity [_press_implicit_x*_fct_move, _press_implicit_y*_fct_move, 5+random 5];
-            sleep 2;
+            uiSleep 2;
             _cap setPosATL [getPosATL _cap select 0, getPosATL _cap select 1, 2];
         };
     } else {
-        sleep 10
+        uiSleep 10
     };
 };

@@ -13,5 +13,5 @@ while {seekeron} do {
 	_poz = ufo_hunt_alias getrelpos [100+random 500,selectrandom [random 60,random -60]];
 	"seekermarker" setMarkerPos _poz;
 	[["seekermarker"],"\Root_Effects\Root_UFO\AL_ufo\ufo_travel_SFX.sqf"] remoteExec ["execvm"];
-	sleep _freq
+	uiSleep _freq
 }

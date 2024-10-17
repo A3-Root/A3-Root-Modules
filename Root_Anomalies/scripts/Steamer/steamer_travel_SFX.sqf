@@ -16,5 +16,5 @@ _ground setParticleRandom [0,[0.25,0.25,0],[0,0,0],0,0.2,[0,0,0,0],0,0];
 _ground setParticleParams [["\A3\data_f\ParticleEffects\Universal\Mud.p3d",1,0,1],"","SpaceObject",1,30,[0,0,0],[0,0,0.1],0,20,7.9,0,[1,0.1],[[1,1,1,1],[1,1,1,0]],[1],0,0,"","",_project,0,true,0.1,[[0,0,0,0]]];
 _ground setDropInterval 0.05;
 
-while {alive _project} do {playSound3D ["\Root_Anomalies\Root_Steamer\sound\al_boil.ogg", "", false, [getpos _project select 0,getpos _project select 1,0.5], 20, 5, 0];sleep 1};
+while {alive _project} do {playSound3D ["\Root_Anomalies\Root_Steamer\sound\al_boil.ogg", "", false, [getpos _project select 0,getpos _project select 1,0.5], 20, 5, 0];uiSleep 1};
 deletevehicle _ground; deletevehicle _burst;

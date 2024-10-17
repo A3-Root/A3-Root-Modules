@@ -13,6 +13,6 @@ if (!hasInterface) exitWith {};
 	_light setLightBrightness 30000;
 	_light setLightAmbient [0.5, 0.5, 1];
 	_light setlightcolor [1, 1, random 2];
-	sleep 0.5;
+	uiSleep 0.5;
 	deletevehicle _light;
 	};

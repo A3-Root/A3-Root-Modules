@@ -23,7 +23,7 @@ if (!hasInterface) exitWith {};
 
 	[_splash_hot] spawn {
 		_de_sters = _this select 0;
-		sleep 0.5;
+		uiSleep 0.5;
 		deleteVehicle _de_sters;
 	};	
 	
@@ -54,7 +54,7 @@ if (!hasInterface) exitWith {};
 		_meteor_voice = _this select 0;
 		_delay_m = linearConversion [0,2000,player distance _meteor_voice,0,1,true];
 		_pow_met = linearConversion [0,2000,player distance _meteor_voice,6,0.1,true];
-		sleep _delay_m;
+		uiSleep _delay_m;
 		_meteor_voice say3D ["expozie",3000];
 		enableCamShake true;
 		addCamShake [_pow_met,5,35];
@@ -69,16 +69,16 @@ if (!hasInterface) exitWith {};
 	_li_end setLightFlareMaxDistance 2000;	
 	_li_end setLightAmbient[1, 0.5, 0];
 	_li_end setLightColor[1, 0.5, 0];
-	sleep 0.2;
+	uiSleep 0.2;
 	if (_shk) then {deleteVehicle _blast_wave};
-	sleep 0.2;
+	uiSleep 0.2;
 	deleteVehicle _fum;
 	deleteVehicle _li_end;
 	if (_shk) then {deleteVehicle _blast};
 	deleteVehicle _bolovani;
 	playSound "earthquakes";
-	sleep 1+random 1;
+	uiSleep 1+random 1;
 	addCamShake [0.5, 30, 35];	
-	sleep 5.3;
+	uiSleep 5.3;
 	enableCamShake false;
 	deleteVehicle _meteor_voice;

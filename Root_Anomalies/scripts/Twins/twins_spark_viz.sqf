@@ -46,11 +46,11 @@ while {alive _electromagnetic_anom} do
 				addCamShake [1,4,33];
 				_aberat ppEffectAdjust[1, 0.8, true];
 				_aberat ppEffectCommit 3;
-				sleep 3;
+				uiSleep 3;
 				addCamShake [1,4,33];
 				_aberat ppEffectAdjust[0, 0, true];
 				_aberat ppEffectCommit 3;
-				sleep 3;
+				uiSleep 3;
 			};
 			_aberat ppEffectEnable false;
 			ppEffectDestroy _aberat;
@@ -71,7 +71,7 @@ while {alive _electromagnetic_anom} do
 		{ 
 			player setdamage ((damage player) + random(0.33));
 		};
-		sleep 5;
+		uiSleep 5;
 		_play_sunet = true;
 	};
 	};
@@ -97,5 +97,5 @@ while {alive _obj_emit} do
 			if (_viz_fct>0) then {_viz_fct = _viz_fct-1;_total_viz = _obj_emit getVariable "vizibil";_total_viz=_total_viz-1;_obj_emit setVariable ["vizibil", _total_viz, true];};
 		};
 		//hint str looking_units; hint str (_obj_emit getVariable "vizibil");
-	sleep 0.2; };
+	uiSleep 0.2; };
 };

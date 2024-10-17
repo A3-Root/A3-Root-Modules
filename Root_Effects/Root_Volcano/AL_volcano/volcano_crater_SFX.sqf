@@ -35,7 +35,7 @@ _lava_boil setParticleRandom [0,[_crater_radius/6,_crater_radius/6,0],[0.5,0.5,2
 _lava_boil setParticleParams [["\A3\data_f\kouleSvetlo",1,0,1],"","Billboard",1,5,[0,0,0],[0,0,20],0,70,6,0,[_crater_radius,_crater_radius+5,_crater_radius*2],[[1,0.1,0.1,0.5],[1,0.5,0.1,0.3],[1,0.5,0,0]],[1],1,0,"","", _volcano_object];
 _lava_boil setDropInterval 0.3;
 
-waitUntil {sleep 30; isNull _volcano_object};
+waitUntil {uiSleep 30; isNull _volcano_object};
 deleteVehicle _lava_heat;
 deleteVehicle _lava;
 deleteVehicle _interior_lava;

@@ -24,14 +24,14 @@ if (!hasInterface) exitWith {};
 	_li setLightAmbient[1,.8,.7];
 	_li setLightColor[1,1,1];	
 	
-	sleep 0.2;
+	uiSleep 0.2;
 	
 	_li setLightFlareSize 5;
 
 	while {_bri_li>-50} do {
 		_li setLightIntensity _bri_li;
 		_bri_li=_bri_li-50;
-	sleep 0.05;
+	uiSleep 0.05;
 	};
 	waitUntil {_bri_li==0};
 	deleteVehicle _li;

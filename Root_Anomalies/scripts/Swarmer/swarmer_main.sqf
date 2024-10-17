@@ -14,7 +14,7 @@ _radius	= _this select 1;
 _hiv_ki	= _this select 2;
 _dmg_un	= _this select 3;
 
-sleep 2;
+uiSleep 2;
 
 insecticid = _hiv_ki; publicVariable "insecticid";
 
@@ -34,7 +34,7 @@ atak_swarmer = false; publicVariable "atak_swarmer";
 
 while {alive _mobile_s} do 
 {
-	while {!(_mobile_s getVariable "isHive")} do {{if (_x distance getPos _mobile_s < 1000) then {_mobile_s setVariable ["isHive",true,true]}} foreach allPlayers; uisleep 10};
+	while {!(_mobile_s getVariable "isHive")} do {{if (_x distance getPos _mobile_s < 1000) then {_mobile_s setVariable ["isHive",true,true]}} foreach allPlayers; uiSleep 10};
 	_mobile_s setVariable ["tgt",nil,true];
 	_list_unit_range_hiv = [_mobile_s,_radius] call fnc_find_target_hiv; 
 	_list_unit_range_hiv = _list_unit_range_hiv select { typeOf _x != "VirtualCurator_F" };
@@ -47,7 +47,7 @@ while {alive _mobile_s} do
 		while {(alive _tgt_hiv)and(_tgt_hiv distance _mobile_s < _radius)} do
 		{
 			if (_tgt_hiv distance _mobile_s > 10) then {_mobile_s moveTo AGLToASL (_tgt_hiv modelToWorld [0,7,0])};
-			uisleep 4;
+			uiSleep 4;
 			if ((_tgt_hiv distance _mobile_s <= 10) and (alive _mobile_s)) then 
 			{	
 				atak_swarmer = true; publicVariable "atak_swarmer";
@@ -67,13 +67,13 @@ while {alive _mobile_s} do
 				};
 				};
 				{[_mobile_s,_x] spawn fnc_avoid_hive} foreach _list_unit_range_hiv;
-				uisleep 3;
+				uiSleep 3;
 				atak_swarmer = false; publicVariable "atak_swarmer";
 				_balta_sange = createVehicle [selectrandom["BloodPool_01_Large_New_F","BloodSplatter_01_Large_New_F"],[0,0,0],[],0,"CAN_COLLIDE"]; _balta_sange setDir (round (random 360)); _balta_sange setposATL [getPosATL _tgt_hiv # 0,getPosATL _tgt_hiv # 1,0]; _balta_sange setVectorUp surfaceNormal getPosASL _balta_sange;
 				_mobile_s setpos (position _balta_sange);
 				_mobile_s stop true;
 				[_balta_sange,["roi_atk_01",300]] remoteExec ["say3d"];
-				uisleep 5;
+				uiSleep 5;
 				_mobile_s stop false;
 				{[_mobile_s,_x] spawn fnc_avoid_hive} foreach _list_unit_range_hiv;
 			};
@@ -81,16 +81,16 @@ while {alive _mobile_s} do
 		if (!alive _tgt_hiv) then 
 		{
 			[_mobile_s,_tgt_hiv] spawn fnc_ajust_poz;
-			uisleep 2;
+			uiSleep 2;
 			_mobile_s stop true;
 			[[_tgt_hiv,_mobile_s],"\Root_Anomalies\Root_Swarmer\AL_swarmer\swarmer_eating_SFX.sqf"] remoteExec ["execVM"];
 			_tgt_hiv hideObjectGlobal true;
 			_oase = createVehicle ["Land_HumanSkeleton_F",getposATL _tgt_hiv,[],0,"CAN_COLLIDE"]; _oase setDir (round (random 360));
 			_mobile_s setVariable ["tgt",nil,true];
 			atak_swarmer = false; publicVariable "atak_swarmer";
-			uisleep 12;
+			uiSleep 12;
 			_mobile_s stop false;
 		};
-	} else {_mobile_s setVariable ["isHive",false,true]; atak_swarmer = false; publicVariable "atak_swarmer"; uisleep 5};
+	} else {_mobile_s setVariable ["isHive",false,true]; atak_swarmer = false; publicVariable "atak_swarmer"; uiSleep 5};
 }:
-uisleep 30; deleteVehicle _mobile_s;
+uiSleep 30; deleteVehicle _mobile_s;

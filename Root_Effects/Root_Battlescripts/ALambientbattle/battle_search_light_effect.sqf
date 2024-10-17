@@ -53,7 +53,7 @@ if (_sound_AAA) then {
 		_voice_AAA_search = _this select 0;
 		while {(alive _voice_AAA_search)&&al_search_light} do {
 			_voice_AAA_search say3d ["alarma_aeriana_scurt",3000];
-			sleep 30;
+			uiSleep 30;
 		};
 	};
 };
@@ -66,14 +66,14 @@ while {(alive _obiect_search) and (al_search_light)} do
 	[_obiect_search,[(-1)*_ii,0,_rot]] call fnc_SetPitchBankYaw;
 	_ii=_ii+0.2;
 	_rot=_rot-0.2;
-	sleep 0.01;
+	uiSleep 0.01;
 	};
-	sleep random 1;
+	uiSleep random 1;
 	while {_ii>30} do {
 	[_obiect_search,[(-1)*_ii,0,_rot]] call fnc_SetPitchBankYaw;
 	_ii=_ii-0.2;
 	_rot=_rot+1;
-	sleep 0.01;
+	uiSleep 0.01;
 	};
 };
 deleteVehicle _obiect_search;

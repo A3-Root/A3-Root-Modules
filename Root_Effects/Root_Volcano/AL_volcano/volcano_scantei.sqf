@@ -18,13 +18,13 @@ _lava_chunks setParticleParams [["\A3\data_f\cl_exp",1,0,1],"","Billboard",1,2,[
 _lava_chunks setDropInterval 0.01;
 
 drop [["\A3\data_f\ParticleEffects\Universal\Universal",16,12,9,0],"","BillBoard",1,7,[0,0,20],[0,0,80],0,500,5,0,[100,200,300],[[1,0.7,0,1],[1,0.7,0,1],[0,0,0,0]],[1],1,0,"","",_alias_volcano];
-sleep 0.3;
+uiSleep 0.3;
 drop [["\A3\data_f\ParticleEffects\Universal\Universal",16,12,9,0],"","BillBoard",1,7,[0,0,10],[0,0,100],0,500,5,0,[100,200,300],[[1,0.7,0,1],[1,0.7,0,1],[0,0,0,0]],[1],1,0,"","",_alias_volcano];
 
 _earth_tremor = selectrandom [["earthquake_03",10],["earthquake_02",25]];
 playsound (_earth_tremor#0);
 enableCamShake true; addCamShake [0.5,(_earth_tremor#1)*2,25];
-sleep 2;
+uiSleep 2;
 deletevehicle _lava_chunks;
 deletevehicle _blow_up;
 if ((position player distance _alias_volcano) < 3000) then {playsound erupt_eko};

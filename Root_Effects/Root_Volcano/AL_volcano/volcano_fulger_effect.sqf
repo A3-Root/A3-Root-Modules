@@ -21,9 +21,9 @@ while {_sclipiri>0} do
 	_li_fulger setLightFlareMaxDistance 2000;	
 	_li_fulger setLightAmbient[1,1,1];
 	_li_fulger setLightColor[1,1,1];
-	sleep 0.15+(random 0.2);
+	uiSleep 0.15+(random 0.2);
 	deleteVehicle _li_fulger;
 	_sclipiri = _sclipiri-1;
 };
-sleep 0.5;
+uiSleep 0.5;
 playsound _tunet;

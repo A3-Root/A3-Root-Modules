@@ -11,5 +11,5 @@ while {alive _inima} do {
     };
     _inima setDir _unghi;
     _unghi = _unghi + 1;
-    sleep 0.1;
+    uiSleep 0.1;
 };

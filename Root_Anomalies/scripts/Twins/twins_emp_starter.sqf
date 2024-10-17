@@ -34,7 +34,7 @@ _light_emp setLightUseFlare true; _light_emp setLightFlareSize 10; _light_emp se
 _light_emp setLightDayLight true;
 _light_emp setLightAttenuation [10,10,50,0,50,2000];
 
-sleep 0.1;
+uiSleep 0.1;
 if !(_isseisore) then 
 {
 	_hndl = ppEffectCreate ["ColorInversion", 1501]; 
@@ -42,7 +42,7 @@ if !(_isseisore) then
 	_hndl ppEffectAdjust [0.75,0.75,0.75];
 	_hndl ppEffectCommit 0.5;
 
-	sleep 0.5;
+	uiSleep 0.5;
 
 	_hndl = ppEffectCreate ["ColorInversion", 1501]; 
 	_hndl ppEffectEnable true; 
@@ -57,11 +57,11 @@ if !(_isseisore) then
 	{
 		_light_emp setLightBrightness _brit;
 		_brit = _brit+2;
-		sleep 0.01;
+		uiSleep 0.01;
 	};
 };
 
-sleep 0.5;
+uiSleep 0.5;
 deleteVehicle _blast;
 
 deleteVehicle _light_emp;
@@ -159,7 +159,7 @@ _e_static setParticleCircle [1.5, [0, 0, 0]];
 _e_static setParticleRandom [0.2, [3.5,3.5,0], [0.175, 0.175, 0], 0, 0.2, [0, 0, 0, 1], 1, 0];
 _e_static setParticleParams [["\A3\data_f\blesk1", 1, 0, 1], "", "SpaceObject", 1, 0.05, [0, 0, 0], [0, 0, 0], 0, 10, 7.9,0, [0.003, 0.003], [[1, 1, 0.1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _x];
 _e_static setDropInterval 0.025;
-sleep 0.5;
+uiSleep 0.5;
 deleteVehicle _e_static;
 } forEach (nearestObjects [_spark_move, [
 "Car",
@@ -247,7 +247,7 @@ if (_spark_type=="orange") then
 	_scantei_spark setDropInterval 0.001;
 };
 _scantei_spark say3D _spark_sound;
-sleep 0.4 + (random 0.7);
+uiSleep 0.4 + (random 0.7);
 deleteVehicle _scantei_spark;
 } forEach (nearestObjects [_spark_move, [
 "Lamps_base_F", //These are all the lights' base classes
@@ -628,7 +628,7 @@ _binos = [
 	};
 } forEach (nearestObjects [_spark_move, ["CAManBase"], _AOE]); 
 
-sleep 0.5;
+uiSleep 0.5;
 {							
 	if(alive _x) then {
 				
@@ -643,7 +643,7 @@ sleep 0.5;
 	};
 } forEach (nearestObjects [_spark_move, ["CAManBase"], _AOE]); 
 
-sleep 0.5;
+uiSleep 0.5;
 {							
 	if(alive _x) then {
 				
@@ -659,7 +659,7 @@ sleep 0.5;
 } forEach (nearestObjects [_spark_move, ["CAManBase"], _AOE]); 
 
 
-sleep 0.5;
+uiSleep 0.5;
 {							
 	if(alive _x) then {
 				
@@ -776,7 +776,7 @@ _x removePrimaryWeaponItem "OPTRE_DMR_Light"
 
 
 
-sleep 1;
+uiSleep 1;
 
 deleteVehicle _bangsound;
 deleteVehicle _spark_move;

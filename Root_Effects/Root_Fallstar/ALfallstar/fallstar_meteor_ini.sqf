@@ -13,5 +13,5 @@ publicVariable "alias_meteors";
 
 while {alias_meteors} do {
 	nul = [] execvm "\Root_Effects\Root_Fallstar\ALfallstar\fallstar_meteor.sqf";
-	sleep _delay;
+	uiSleep _delay;
 };

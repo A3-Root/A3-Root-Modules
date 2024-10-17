@@ -9,7 +9,7 @@ fnc_blood ={
 	_blood_splash setParticleRandom [0.1,[0.2,0.2,0.2],[0,0,0.1],0,0.2,[0,0,0,0.1],1,0];
 	_blood_splash setParticleParams [["\A3\data_f\ParticleEffects\Universal\Universal.p3d", 16,13,1],"","Billboard",1,0.15,[0,0,0],[0,0,0],2,10,7.9,0,[0.2,0.8],[[1,0,0.1,1],[1,1,0.1,1]],[1],1,0,"","",_spot];
 	_blood_splash setDropInterval 0.2;
-	sleep 10;
+	uiSleep 10;
 	deleteVehicle _blood_splash;
 };
 
@@ -20,7 +20,7 @@ fnc_meat = {
 	_meat_pieces setParticleRandom [0.2,[0.5,0.5,0.2],[0,0,0],0,0.5,[0,0,0,0.1],1,0];
 	_meat_pieces setParticleParams [["\A3\data_f\ParticleEffects\Universal\Meat_ca.p3d",1,0,1],"","SpaceObject",1,15,[0,0,0.1],[0,0,0],0,19,7.9, 0.1,[4,4],[[1,0.1,0.1,1],[0,0,0,1]],[1],1,0, "", "", _splash_point,0,true,1,[[0,0,0,0]]];
 	_meat_pieces setDropInterval 0.03;
-	[_meat_pieces] spawn {_meat_pieces = _this select 0; sleep 1; deleteVehicle _meat_pieces};
+	[_meat_pieces] spawn {_meat_pieces = _this select 0; uiSleep 1; deleteVehicle _meat_pieces};
 };
 
 private ["_hives"];
@@ -35,5 +35,5 @@ _fire_obj_unit = [];{_part_fire = "Land_HelipadEmpty_F" createVehiclelocal [0,0,
 (_fire_obj_unit # 0) say3D ["eating",300]; _splash_point say3d ["strigat_92",300];
 
 if (!alive _splash_point) then {[_splash_point] call fnc_meat};
-sleep 13;
+uiSleep 13;
 {deleteVehicle _x} forEach _fire_obj_unit;

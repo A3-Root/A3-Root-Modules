@@ -50,7 +50,7 @@ fnc_attk_strigoi = {
 		};
 		
 	};
-	sleep 1;
+	uiSleep 1;
 };
 
 fnc_hide_strig = {

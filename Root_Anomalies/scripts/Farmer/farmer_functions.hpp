@@ -1,5 +1,6 @@
 // ORIGINALLY CREATED BY ALIAS
 // MODIFIED BY ROOT 
+
 fnc_find_target_farm = {
 	private ["_neartargets","_teritoriu"];
 	params ["_farmer","_teritoriu"];
@@ -27,7 +28,7 @@ fnc_show_farmer = {
 	_farmer setAnimSpeedCoef 0.8; 
 	_farmer switchmove "AmovPknlMstpSnonWnonDnon_AmovPercMstpSnonWnonDnon";
 	_farmer setunitPos "UP";
-	sleep 1;
+	uiSleep 1;
 	playSound3D ["\Root_Anomalies\sounds\eko.ogg", "", false, [getpos _farmer select 0,getpos _farmer select 1,1000], 20, 5, 0];
 };
 
@@ -45,7 +46,7 @@ fnc_attk_farmer = {
 	_farmer setunitPos "UP";
 	[[_farmer,_damage_farmer],"\Root_Anomalies\scripts\Farmer\farmer_shock_SFX.sqf"] remoteExec ["execVM"];
 
-	sleep 1.2;
+	uiSleep 1.2;
 	{	
 		if !(isPlayer _x) then 
 		{
@@ -104,7 +105,7 @@ fnc_travel_farmer = {
 	_jump_dir = (getposasl _farmer vectorFromTo getposasl _tgt_farmer) vectorMultiply 20;
 	_rag setvelocity [_jump_dir # 0,_jump_dir # 1,5];
 	[[_rag],"\Root_Anomalies\scripts\Farmer\farmer_travel_SFX.sqf"] remoteExec ["execVM"];
-	sleep round (2+random 2);
+	uiSleep round (2+random 2);
 	_farmer setvariable ["pozitie_noua",getpos _rag];
 	deletevehicle _rag;
 };

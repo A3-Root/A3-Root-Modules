@@ -46,6 +46,6 @@ if (_mobile_anomaly) then
 		_poz_ini_smug = getposatl _sursa_smugg;
 		_new_poz = [_poz_ini_smug,0.01,0.3,1,0,-1,0] call BIS_fnc_findSafePos;
 		_sursa_smugg setPos [_new_poz select 0,_new_poz select 1, _poz_ini_smug select 2];
-		sleep 3+random 30;
+		uiSleep 3+random 30;
 	};
 };

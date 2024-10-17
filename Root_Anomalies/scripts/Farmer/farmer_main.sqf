@@ -1,10 +1,11 @@
 // ORIGINALLY CREATED BY ALIAS
 // MODIFIED BY ROOT 
-#include "\Root_Anomalies\scripts\Farmer\farmer_functions.hpp"
-private ["_marker_farmer", "_territory", "_damage_inflicted", "_recharge_delay", "_health_points", "_pozitie_noua", "_tgt_farmer", "_list_unit_range_farm", "_isaipanic"];
 
 if (!isServer) exitwith {};
 
+#include "\Root_Anomalies\scripts\Farmer\farmer_functions.hpp"
+
+private ["_pozitie_noua", "_tgt_farmer", "_list_unit_range_farm"];
 params ["_marker_farmer", "_territory", "_damage_inflicted", "_recharge_delay", "_health_points", "_isaipanic"];
 _soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimstring;
 explozie = "\Root_Anomalies\sounds\punch_7.ogg";
@@ -23,7 +24,7 @@ while {!_ck_pl} do {
             _ck_pl = true
         }
     } forEach allplayers;
-    sleep 5; // sleep 10;
+    uiSleep 5; // uiSleep 10;
 };
 
 _farmer = createAgent ["C_Soldier_VR_F", getmarkerPos _marker_farmer, [], 0, "NONE"];
@@ -85,7 +86,7 @@ while {alive _farmer} do {
                 _ck_pl = true
             }
         } forEach allplayers;
-        sleep 5; // sleep 30
+        uiSleep 5; // uiSleep 30
     };
     _list_unit_range_farm = [_farmer, _territory] call fnc_find_target_farm;
     _tgt_farmer = selectRandom (_list_unit_range_farm select {
@@ -113,11 +114,11 @@ while {alive _farmer} do {
                     [_farmer, _x] spawn fnc_avoid_farmer
                 } forEach _list_unit_range_farm;
             };
-            sleep 1;
+            uiSleep 1;
         };
         _farmer setunitPos "UP";
         if ((_farmer distance _tgt_farmer)<20) then {
-            sleep 1;
+            uiSleep 1;
             [_farmer, _damage_inflicted] call fnc_attk_farmer;
             if (_isaipanic) then 
             {
@@ -125,9 +126,9 @@ while {alive _farmer} do {
                     [_farmer, _x] spawn fnc_avoid_farmer
                 } forEach _list_unit_range_farm;
             };
-            sleep _recharge_delay;
+            uiSleep _recharge_delay;
         } else {
-            sleep 1+random 2;
+            uiSleep 1+random 2;
             _farmer call fnc_hide_farmer
         };
         _farmer setunitPos "UP";
@@ -141,7 +142,7 @@ while {alive _farmer} do {
         };
     };
     _farmer setunitPos "UP";
-    sleep 1;
+    uiSleep 1;
     _farmer call fnc_hide_farmer;
     	_farmer enableSimulationGlobal false;
     _list_unit_range_farm =[];

@@ -13,11 +13,11 @@ while {alive _gren} do
 		{
 			if (!isNil{_x getVariable "isHive"}) then 
 			{
-				sleep 1;
+				uiSleep 1;
 				_x setDamage 1; 
 				[[_x],"\Root_Anomalies\Root_Swarmer\AL_swarmer\swarmer_dead_SFX.sqf"] remoteExec ["execVM"];
 			};
 		} foreach _ck_hiv;
 	};
-	sleep 2;
+	uiSleep 2;
 }

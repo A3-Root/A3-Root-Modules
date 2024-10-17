@@ -24,5 +24,5 @@ if (count _list_ai_in_range>0) then
 	} foreach _list_ai_in_range;
 
 };
-sleep 10; /* sleep 30; */
+uiSleep 10; /* uiSleep 30; */
 };

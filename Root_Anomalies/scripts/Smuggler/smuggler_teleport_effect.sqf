@@ -7,7 +7,7 @@ fn_teleport = {
 	_pozitie	= _this select 1;
 	_noseizee  = _this select 2;
 
-	sleep 2;
+	uiSleep 2;
 	waitUntil {isNil{player getVariable "tele"}};
 
 	player setVariable ["tele",true];
@@ -15,9 +15,9 @@ fn_teleport = {
 	["zoomin"] remoteExec ["playsound",_unit];
 	_sound_in = ["halu_1","halu_2","halu_3","halu_4","halu_5","halu_6","halu_7","halu_8","halu_9","halu_91","halu_92","halu_93","halu_94","halu_95","halu_96","halu_97","halu_98","halu_99","halu_991","halu_992","halu_993","halu_994","halu_995","halu_996","halu_997","halu_998","halu_999","halu_9999"] call BIS_fnc_selectRandom;
 	[_sound_in] remoteExec ["playsound",_unit];
-	sleep 0.5;
+	uiSleep 0.5;
 	_unit setPos [_pozitie select 0,_pozitie select 1,2];
-	sleep (3 + random 6);
+	uiSleep (3 + random 6);
 	player setVariable ["tele",nil];
 };
 
@@ -52,7 +52,7 @@ switch (_floor_dice) do
 {
 	case 0: {_poz_1 = [getpos _obj_tele,300,-1,5,0,-1,0] call BIS_fnc_findSafePos;
 			[_unit_check,_poz_1,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 
@@ -66,7 +66,7 @@ switch (_floor_dice) do
 			};
 	case 1: {_poz_1 = [getpos _obj_tele,300,-1,5,0,-1,0] call BIS_fnc_findSafePos;
 			[_unit_check,_poz_1,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 
@@ -81,7 +81,7 @@ switch (_floor_dice) do
 	case 2: {_poz_1 = [getpos _obj_tele,300,-1,5,0,-1,0] call BIS_fnc_findSafePos;_poz_2 = [getpos _obj_tele,300,-1,5,0,-1,0] call BIS_fnc_findSafePos;
 			[_unit_check,_poz_1,_noseizeer] call fn_teleport;
 			[_unit_check,_poz_2,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 
@@ -97,7 +97,7 @@ switch (_floor_dice) do
 			[_unit_check,_poz_1,_noseizeer] call fn_teleport;
 			[_unit_check,_poz_2,_noseizeer] call fn_teleport;			
 			[_unit_check,_poz_3,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 
@@ -114,7 +114,7 @@ switch (_floor_dice) do
 			[_unit_check,_poz_2,_noseizeer] call fn_teleport;			
 			[_unit_check,_poz_3,_noseizeer] call fn_teleport;		
 			[_unit_check,_poz_4,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 
@@ -132,7 +132,7 @@ switch (_floor_dice) do
 			[_unit_check,_poz_3,_noseizeer] call fn_teleport;		
 			[_unit_check,_poz_4,_noseizeer] call fn_teleport;			
 			[_unit_check,_poz_5,_noseizeer] call fn_teleport;
-			sleep 0.3;
+			uiSleep 0.3;
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.3,0.8,0.65,0.5,0.8,0.65];
 			_dmgType = selectRandom ["backblast", "bullet", "explosive", "grenade"];
 			if (!(isNil "ace_medical_fnc_addDamageToUnit")) then 

@@ -11,18 +11,18 @@ _dir_blo = (_blowpoz vectorFromTo (_unit getRelPos [30,0])) vectorMultiply _al_p
 _rag = "Land_PenBlack_F" createVehicle [0,0,0];
 _rag attachTo [_unit,[0,0,0],"Spine3"];
 _unit setVelocityModelSpace [_dir_blo # 0,_dir_blo # 1,_al_pressure];
-sleep 0.1;
+uiSleep 0.1;
 _unit allowDamage false;
 _rag setMass 1e10;
 _rag setVelocityModelSpace [_dir_blo # 0,_dir_blo # 1,_al_pressure];
-sleep 0.01;
+uiSleep 0.01;
 detach _rag;
 0 = [_rag,_unit] spawn {
 	params ['_rag','_tgt'];
-	sleep 0.5;
+	uiSleep 0.5;
 	deleteVehicle _rag;
 	waitUntil {vectorMagnitude velocity _tgt < 0.1};
 	_tgt allowDamage true;
 };
-sleep 0.2;
+uiSleep 0.2;
 [_unit,[_tip,300]] remoteExec ["say3d"];

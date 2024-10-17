@@ -28,16 +28,16 @@ _bolovani_blast setParticleRandom [1, [0.25, 0.25, 0], [10, 10, 15], 0.5, 0.25, 
 _bolovani_blast setParticleParams [["\A3\data_f\ParticleEffects\Universal\Mud.p3d", 1, 0, 1], "", "SpaceObject", 1, 10, [0, 0, 0], [0, 0, 13], 3, 20, 7.9, 0.0001, [.6, .6, .6], [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _head_worm,0,true,0.3,[[0,0,0,0]]];
 _bolovani_blast setDropInterval 0.007;
 
-sleep 0.25;
+uiSleep 0.25;
 deletevehicle _bolovani_blast;
 _crater_impact = createVehicle ["CraterLong",[getpos _head_worm select 0,getpos _head_worm select 1,0],[],0,"CAN_COLLIDE"];
 _crater_impact setDir (random 360);
-sleep 0.5;
+uiSleep 0.5;
 deletevehicle _blast_dust;
 
 if (player distance _head_worm < 1500) then {
 _after_effect = ["post_impact_01","post_impact_02","post_impact_03","post_impact_04"] call BIS_fnc_selectRandom;
 playsound _after_effect;
 };
-sleep 60; /* sleep 300; */
+uiSleep 60; /* uiSleep 300; */
 deletevehicle _crater_impact;

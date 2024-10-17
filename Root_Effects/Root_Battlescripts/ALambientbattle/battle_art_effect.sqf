@@ -12,7 +12,7 @@ _li_art = "#lightpoint" createVehicleLocal getpos _art_object;
 
 while {(al_art) and (!isNull _art_object_name)} do 
 {
-	sleep _ground_speed;
+	uiSleep _ground_speed;
 	
 	_rel_Pos= [getPos _art_object_name,random _range_art, random 360] call BIS_fnc_relPos;
 
@@ -49,7 +49,7 @@ _art_object setPos _rel_Pos;
 		while {_intens_li>0} do {
 			_li_art setLightIntensity _intens_li;
 			_intens_li = _intens_li-10;
-			sleep 0.001;
+			uiSleep 0.001;
 		};
 		deleteVehicle _fum;
 		_li_art setLightIntensity 0;
@@ -59,7 +59,7 @@ _art_object setPos _rel_Pos;
 			{
 				[_x, _x, {_this allowDamage false}] remoteExec ["SYNC_FNC_EXEC_AND_LOCK", _x];
 			} forEach _nearbyunits;
-			waitUntil {sleep 0.1; [_nearbyunits] call SYNC_FNC_ALL_LOCKED};
+			waitUntil {uiSleep 0.1; [_nearbyunits] call SYNC_FNC_ALL_LOCKED};
 			{
 				[_x] call SYNC_FNC_UNLOCK;
 			} forEach _nearbyunits;

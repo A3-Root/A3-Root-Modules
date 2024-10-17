@@ -275,7 +275,7 @@ if (_isalivevic) then
 	}];
 };
 
-sleep 1;
+uiSleep 1;
 
 while {alive _entitate} do
 {
@@ -305,11 +305,11 @@ while {alive _entitate} do
 			_entitate doMove _poz;
 			[_screamer_anomally,["miscare_screamer",300]] remoteExec ["say3d"];
 		};
-		sleep 5;
+		uiSleep 5;
 
 		_entitate lookAt _poz;
 		dostop _entitate;
-		sleep 1;
+		uiSleep 1;
 
 		if (_isalivevic) then 
 		{
@@ -346,7 +346,7 @@ while {alive _entitate} do
 		if !((_units_range_3 find _screamer_anomally) == -1) then {_units_range_3 = _units_range_3 - [_screamer_anomally]};
 		};
 				
-		sleep 1;
+		uiSleep 1;
 
 		_wave_obj attachTo [_entitate, [0,-1,1.5]];
 		detach _wave_obj;
@@ -420,7 +420,7 @@ while {alive _entitate} do
 			};
 			_x setMass _temp_mass;
 		} foreach _units_range_1;
-		sleep 0.1;
+		uiSleep 0.1;
 		{
 			_vel = velocity _x;
 			_speed = 5;
@@ -451,7 +451,7 @@ while {alive _entitate} do
 			};
 			_x setMass _temp_mass;
 		} foreach _units_range_2;
-		sleep 0.2;
+		uiSleep 0.2;
 		{
 			_vel = velocity _x;
 			_speed = 2;
@@ -484,26 +484,26 @@ while {alive _entitate} do
 		} foreach _units_range_3;
 		_wave_obj setVelocity [_press_implicit_x*_al_pressure,_press_implicit_y*_al_pressure,0];
 		
-		sleep 1;
+		uiSleep 1;
 		deleteVehicle _wave_obj;
-		sleep 1;
+		uiSleep 1;
 
 		scream_on=false;
 		_units_range = [];
 	};
 };
-sleep 5;
+uiSleep 5;
 };
 
 if (_isalivevic) then 
 {
 	[[_entitate],"\Root_Anomalies\Root_Screamer\AL_screamer\screamer_teleport.sqf"] remoteExec ["execvm"];
-	sleep 4;
+	uiSleep 4;
 	deleteVehicle _entitate;
 } else
 {
 	deleteVehicle _entitate;
 	[[_screamer_anomally],"\Root_Anomalies\Root_Screamer\AL_screamer\screamer_teleport.sqf"] remoteExec ["execvm"];
-	sleep 4;
+	uiSleep 4;
 	deleteVehicle _screamer_anomally;
 };

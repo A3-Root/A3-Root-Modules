@@ -7,7 +7,7 @@ if (!isServer) exitWith {};
 params ["_poz_orig_sc","_teritoriu","_damage_flamer", "_recharge_delay", "_hp_flamer", "_damage_on_death", "_isaipanic"];
 private ["_poz_orig_sc","_teritoriu","_damage_flamer", "_recharge_delay", "_hp_flamer", "_damage_on_death", "_isaipanic", "_isacefire", "_isacemedical", "_dmg_fire", "_vehicle", "_vichitpoints", "_damage", "_time"];
 
-sleep 2;
+uiSleep 2;
 
 if !(isClass (configFile >> "CfgPatches" >> "ace_medical_engine")) then 
 {
@@ -30,7 +30,7 @@ _isacemedical = false;
 _dmg_fire = _damage_flamer;
 
 _ck_pl = false;
-while {!_ck_pl} do {{if (_x distance getMarkerPos _poz_orig_sc < _teritoriu) then {_ck_pl = true}} foreach allPlayers;sleep 5; /* sleep 10; */};
+while {!_ck_pl} do {{if (_x distance getMarkerPos _poz_orig_sc < _teritoriu) then {_ck_pl = true}} foreach allPlayers;uiSleep 5; /* uiSleep 10; */};
 _flamer = createAgent ["O_Soldier_VR_F",getMarkerPos _poz_orig_sc, [],0, "NONE"]; _flamer setVariable ["BIS_fnc_animalBehaviour_disable", true]; _flamer setSpeaker "NoVoice"; _flamer disableConversation true; _flamer addRating -10000; _flamer setBehaviour "CARELESS"; _flamer enableFatigue false; _flamer setSkill ["courage", 1]; _flamer setUnitPos "UP"; _flamer disableAI "ALL"; _flamer setMass 7000; {_flamer enableAI _x} forEach ["MOVE","ANIM","TEAMSWITCH","PATH"];
 
 _hp_curr_flamer = 1/_hp_flamer;
@@ -82,12 +82,12 @@ _list_unit_range_flamer = [];
 
 while {alive _flamer} do 
 {
-	while {count _list_unit_range_flamer isEqualTo 0} do {_list_unit_range_flamer = [_flamer,_teritoriu] call fnc_find_target_flamer; sleep 5; /* sleep 10; */};
+	while {count _list_unit_range_flamer isEqualTo 0} do {_list_unit_range_flamer = [_flamer,_teritoriu] call fnc_find_target_flamer; uiSleep 5; /* uiSleep 10; */};
 	_tgt_flamer = selectRandom (_list_unit_range_flamer select { typeOf _x != "VirtualCurator_F" });
 	[_flamer,getMarkerPos _poz_orig_sc,_teritoriu,_damage_flamer] call fnc_show_flamer;
 	while {(!isNil "_tgt_flamer") && {(alive _flamer) && ((_flamer distance getMarkerPos _poz_orig_sc) < _teritoriu)}} do 
 	{
-		sleep _recharge_delay;
+		uiSleep _recharge_delay;
 		_nearflamer = (ASLToAGL getPosASL _flamer) nearEntities [["CAManBase","LandVehicle"],5]; 
 		{
 			
@@ -166,7 +166,7 @@ while {alive _flamer} do
 					};
 				};
 			} forEach (_nearflamer-[_flamer]); [[_flamer],"\Root_Anomalies\scripts\Flamer\flamer_jump_SFX.sqf"] remoteExec ["execvm"]; [_flamer,_tgt_flamer,_cap_flamer,_damage_flamer] spawn fnc_jump_flamer};
-		sleep _recharge_delay;
+		uiSleep _recharge_delay;
 		_nearflamer = (ASLToAGL getPosASL _flamer) nearEntities [["CAManBase","LandVehicle"],5];
 		{
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.47,0.69,0.59,0.55,0.61,0.58];
@@ -203,8 +203,8 @@ while {alive _flamer} do
 			};
 		} forEach (_nearflamer-[_flamer]); 
 		if ((_flamer distance _tgt_flamer <15)&&!(_flamer getVariable "atk")) then 
-		{_flamer setVariable ["atk",true]; [_flamer,_tgt_flamer,_damage_flamer] spawn fnc_attk_flamer; sleep 0.5; [[_tgt_flamer],"\Root_Anomalies\scripts\Flamer\flamer_atk_SFX.sqf"] remoteExec ["execvm"]};
-		sleep _recharge_delay;
+		{_flamer setVariable ["atk",true]; [_flamer,_tgt_flamer,_damage_flamer] spawn fnc_attk_flamer; uiSleep 0.5; [[_tgt_flamer],"\Root_Anomalies\scripts\Flamer\flamer_atk_SFX.sqf"] remoteExec ["execvm"]};
+		uiSleep _recharge_delay;
 		_nearflamer = (ASLToAGL getPosASL _flamer) nearEntities [["CAManBase","LandVehicle"],5];
 		{
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.47,0.69,0.59,0.55,0.61,0.58];
@@ -241,7 +241,7 @@ while {alive _flamer} do
 			};
 		} forEach (_nearflamer-[_flamer]); 
 		if ((!alive _tgt_flamer)or(_tgt_flamer distance getMarkerPos _poz_orig_sc > _teritoriu)) then {_list_unit_range_flamer = [_flamer,_teritoriu] call fnc_find_target_flamer; if !(count _list_unit_range_flamer isEqualTo 0) then {_tgt_flamer = selectRandom _list_unit_range_flamer} else {_tgt_flamer = nil}};
-		sleep _recharge_delay;
+		uiSleep _recharge_delay;
 		_nearflamer = (ASLToAGL getPosASL _flamer) nearEntities [["CAManBase","LandVehicle"],5];
 		{
 			_bodyPart = ["Head", "RightLeg", "LeftArm", "Body", "LeftLeg", "RightArm"] selectRandomWeighted [0.47,0.69,0.59,0.55,0.61,0.58];
@@ -281,6 +281,6 @@ while {alive _flamer} do
 	_flamer call fnc_hide_flamer;
 	_tgt_flamer = nil;
 	_list_unit_range_flamer = [];
-	sleep _recharge_delay + 2;
+	uiSleep _recharge_delay + 2;
 };
-detach _cap_flamer;deleteVehicle _cap_flamer;sleep 5;deleteVehicle _flamer;
+detach _cap_flamer;deleteVehicle _cap_flamer;uiSleep 5;deleteVehicle _flamer;

@@ -10,5 +10,5 @@ while {alive _inima} do
 	if (_unghi == 360) then {_unghi=0};
 	_inima setdir _unghi;
 	_unghi = _unghi + 1;
-	sleep 0.1;
+	uiSleep 0.1;
 };

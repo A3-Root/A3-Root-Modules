@@ -49,7 +49,7 @@ while {al_aaa} do
 		_li_aaa say3D [_flak_ground,2000];
 	};
 	
-	sleep _aaa_speed;
+	uiSleep _aaa_speed;
 	
 	if (_zz<500) then 
 	{

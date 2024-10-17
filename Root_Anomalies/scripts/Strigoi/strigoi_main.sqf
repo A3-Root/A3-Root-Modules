@@ -14,15 +14,15 @@ private ["_hp_incr","_hp_curr_strig","_pos_strig","_anomalie_dedus","_gasit","_o
 		{
 			allPlayers_on = call BIS_fnc_listPlayers;
 			publicVariable "allPlayers_on";
-			sleep 60;
+			uiSleep 60;
 		};
 	}
 };
 
-sleep 2;
+uiSleep 2;
 
 _ck_pl = false;
-while {!_ck_pl} do {{if (_x distance getMarkerPos _poz_orig_sc < _teritoriu) then {_ck_pl = true}} foreach allPlayers;sleep 10};
+while {!_ck_pl} do {{if (_x distance getMarkerPos _poz_orig_sc < _teritoriu) then {_ck_pl = true}} foreach allPlayers;uiSleep 10};
 
 _strigoi = createAgent ["C_Soldier_VR_F",getMarkerPos _poz_orig_sc, [],0, "NONE"];
 _strigoi setVariable ["BIS_fnc_animalBehaviour_disable", true];
@@ -91,7 +91,7 @@ _list_unit_range_casp = [];
 
 while {alive _strigoi} do 
 {
-	while {count _list_unit_range_casp isEqualTo 0} do {_list_unit_range_casp = [_strigoi,_teritoriu] call fnc_find_target; sleep 10};
+	while {count _list_unit_range_casp isEqualTo 0} do {_list_unit_range_casp = [_strigoi,_teritoriu] call fnc_find_target; uiSleep 10};
 	_tgt_casp = selectRandom ( _list_unit_range_casp select { (typeOf _x != "VirtualCurator_F") && (lifeState _x != "INCAPACITATED") } );
 	[_strigoi,getMarkerPos _poz_orig_sc,_teritoriu] call fnc_show_strig;
 	while {(!isNil "_tgt_casp") && {(alive _strigoi) && ((_strigoi distance getMarkerPos _poz_orig_sc) < _teritoriu)}} do 
@@ -99,13 +99,13 @@ while {alive _strigoi} do
 		[_list_unit_range_casp] call fnc_strig_drain;
 		_strigoi moveTo AGLToASL (_tgt_casp getRelPos[10,180]);
 		if (_isaipanic) then { [_strigoi,_tgt_casp] call fnc_avoid_casp; };
-		sleep 1;
+		uiSleep 1;
 		if (_strigoi distance _tgt_casp <40) then 
 		{
 			_atk_sun = selectRandom ["01_atk_bg","02_atk","03_atk","04_atk"];
 			[_strigoi,[_atk_sun,400]] remoteExec ["say3d"];
 			[_strigoi,_tgt_casp,_damage_strig,_noseize] call fnc_attk_strigoi;
-			sleep 1;
+			uiSleep 1;
 		};
 		if (selectRandom [true,false]) then 
 		{
@@ -114,7 +114,7 @@ while {alive _strigoi} do
 				_copaci = nearestTerrainObjects [_tgt_casp,["TREE"],20];
 				if !(count _copaci isEqualTo 0) then 
 				{
-					sleep 1;
+					uiSleep 1;
 					_obj_de_agatat = "";
 					{
 						_unghi_fugarit = _strigoi getRelDir _tgt_casp;
@@ -125,7 +125,7 @@ while {alive _strigoi} do
 						{
 							_obj_de_agatat=_x;
 							[_strigoi,_tgt_casp,_umbla_casper,_obj_de_agatat,_cap_casper,_pot_poz] call fnc_salt_strig_1;
-							sleep 1;
+							uiSleep 1;
 							[_strigoi,_tgt_casp,_umbla_casper,_obj_de_agatat,_cap_casper] call fnc_salt_strig_2;
 						};
 					} foreach _copaci;
@@ -138,11 +138,11 @@ while {alive _strigoi} do
 			_list_unit_range_casp = [_strigoi,_teritoriu] call fnc_find_target;
 			if !(count _list_unit_range_casp isEqualTo 0) then {_tgt_casp = selectRandom ( _list_unit_range_casp select { (typeOf _x != "VirtualCurator_F") && (lifeState _x != "INCAPACITATED") })} else {_tgt_casp = nil};
 		};
-		sleep 1;
+		uiSleep 1;
 	};
 	_strigoi call fnc_hide_strig;
 	_tgt_casp = nil;
 	_list_unit_range_casp = [];
-	sleep 5;
+	uiSleep 5;
 };
-deleteVehicle _umbla_casper;detach _cap_casper;deleteVehicle _cap_casper;sleep 5;deleteVehicle _strigoi;
+deleteVehicle _umbla_casper;detach _cap_casper;deleteVehicle _cap_casper;uiSleep 5;deleteVehicle _strigoi;

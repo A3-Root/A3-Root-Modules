@@ -19,5 +19,5 @@
 	
 	_falling_star_main setvelocity [_xx_dest/100,_yy_dest/100,-1];
 
-	sleep 4+random 2;
+	uiSleep 4+random 2;
 	deleteVehicle _falling_star_main;

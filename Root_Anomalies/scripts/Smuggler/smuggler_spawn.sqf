@@ -8,7 +8,7 @@ _object_anom_core = _this select 1;
 _object_anom_core setVariable ["activeaza",false,true];
 
 while {!isNull _object_anom_core} do {
-	while {!(_object_anom_core getVariable "activeaza")} do {{if (_x distance getPos _object_anom_core < 1100) then {_object_anom_core setVariable ["activeaza",true,true]}} foreach allPlayers; sleep 10};
+	while {!(_object_anom_core getVariable "activeaza")} do {{if (_x distance getPos _object_anom_core < 1100) then {_object_anom_core setVariable ["activeaza",true,true]}} foreach allPlayers; uiSleep 10};
 	_object_anom_core setVariable ["activeaza",false,true];
 	_spawn_obj_classname= _spawn_obj_class call BIS_fnc_selectRandom;
 	if (getNumber (configFile >> "CfgVehicles" >> _spawn_obj_classname >> "scope") > 0) then 
@@ -29,26 +29,26 @@ while {!isNull _object_anom_core} do {
 			_gigi attachTo [_bounce_obj_temp,[0,0,1]];
 			_bounce_obj_temp setVelocity [[-4,4]call BIS_fnc_selectRandom,[-4,4]call BIS_fnc_selectRandom,2];
 			[_bounce_obj_temp,["tremor",300]] remoteExec ["say3d"];
-			sleep 0.8;
+			uiSleep 0.8;
 			[_gigi,[_tipat,100]] remoteExec ["say3d",0];
 			detach _gigi;
 			deleteVehicle _bounce_obj_temp;
-			sleep 0.5;
+			uiSleep 0.5;
 			_gigi setPosATL [getposATL _gigi select 0,getposATL _gigi select 1,0.0001];
 			_anim = ["ApanPknlMrunSnonWnonDb","ApanPknlMrunSnonWnonDf","ApanPercMrunSnonWnonDf","ApanPercMsprSnonWnonDfr"] call BIS_fnc_selectRandom;
 			[_gigi,_anim] remoteExec ["switchMove"];
 			_run_poz = [getposATL _object_anom_core,100+random 500, random 360] call BIS_fnc_relPos;
-			sleep 3;
+			uiSleep 3;
 			if (alive _gigi) then {[_gigi,""] remoteExec ["switchMove"]};
 			_gigi setDamage (damage _gigi + (random 0.15));
 			_gigi doMove _run_poz;
 			[_gigi] spawn 
 			{
 				_unit_fresh = _this select 0;
-				sleep 120;
+				uiSleep 120;
 				_unit_fresh setVariable ["teleported_in", nil,true];
 			};
-			sleep 10+ random spawn_delay_smugg;
+			uiSleep 10+ random spawn_delay_smugg;
 		} else 
 		{
 			_bounce_obj_temp = createVehicle ["Land_CanOpener_F",getposATL _object_anom_core,[],0,"CAN_COLLIDE"];
@@ -64,9 +64,9 @@ while {!isNull _object_anom_core} do {
 			detach _spawn_obj;
 			[_spawn_obj,[_impact,100]] remoteExec ["say3d",0];
 			_spawn_obj setPosATL [getposATL _spawn_obj select 0,getposATL _spawn_obj select 1,0.0001];
-			sleep 0.1;
+			uiSleep 0.1;
 			deleteVehicle _bounce_obj_temp;
-			sleep 10+ random spawn_delay_smugg; // delay between spawns
+			uiSleep 10+ random spawn_delay_smugg; // delay between spawns
 			if ((_spawn_obj distance _object_anom_core < 10) and (local _spawn_obj)) then {deleteVehicle _spawn_obj};
 		};
 	};

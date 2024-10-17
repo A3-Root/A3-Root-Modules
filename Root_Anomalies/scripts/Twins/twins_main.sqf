@@ -63,13 +63,13 @@ _spark_obj setVariable ["vizibil", 0, true];
 			//hint str _allow_move;
 		} else {_allow_move =0};
 	//hint str (_spark_move getVariable "vizibil");
-	sleep 2;
+	uiSleep 2;
 	};
 	// EMP effect
 	if (_EMP_enabled) then 
 	{
 		[_spark_move, _isseige, _tracking_p] execvm "\Root_Anomalies\Root_Twins\AL_twins\twins_emp_starter.sqf";
-		sleep 2;
+		uiSleep 2;
 	};
 	deleteVehicle _spark_move;
 	deleteVehicle _heart_twin;
@@ -87,14 +87,14 @@ if (_spark_effect) then
 		_spark_obj setDamage 0;
 		_sclipiri = 1+ floor (random 5);
 		//hint str _sclipiri;
-		sleep _pauza;
+		uiSleep _pauza;
 		_nr = 0;
 		while {_nr<_sclipiri} do 
 		{
-			//_spark_obj setDamage 0.9;		sleep 0.1;		_spark_obj setDamage 0;
+			//_spark_obj setDamage 0.9;		uiSleep 0.1;		_spark_obj setDamage 0;
 			_pauza_intre_sclipiri = 0.1+ (random 2);
 			[[_poz_spark,_pauza_intre_sclipiri],"\Root_Anomalies\Root_Twins\AL_twins\twins_spark_effect.sqf"] remoteExec ["execvm"];
-			sleep _pauza_intre_sclipiri;
+			uiSleep _pauza_intre_sclipiri;
 			//_spark_obj setDamage 0.9;
 			_nr=_nr+1;
 		};

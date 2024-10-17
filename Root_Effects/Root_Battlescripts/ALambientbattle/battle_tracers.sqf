@@ -17,6 +17,6 @@ _main_tracer_object setVariable ["is_ON",true,true];
 al_tracer = true; publicVariable "al_tracer";
 al_tracers_sunet_play = false; publicVariable "al_tracers_sunet_play";	
 
-[] spawn {while {al_tracer} do {sleep 33 + random 4; al_tracers_sunet_play = false;	publicVariable "al_tracers_sunet_play"}};
+[] spawn {while {al_tracer} do {uiSleep 33 + random 4; al_tracers_sunet_play = false;	publicVariable "al_tracers_sunet_play"}};
 
 [[_main_tracer_object,_colorred,_colorgreen,_colorblue,_activation_distance],"\Root_Effects\Root_Battlescripts\ALambientbattle\battle_tracers_effect.sqf"] remoteExec ["execVM",0,true];

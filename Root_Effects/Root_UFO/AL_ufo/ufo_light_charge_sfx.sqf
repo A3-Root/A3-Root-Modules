@@ -29,7 +29,7 @@ while {_dir<360} do {
 
 	_dir = _dir+45;
 	_cc=_cc+1;
-	sleep .05;
+	uiSleep .05;
 };
 
 _intens_vf = 0;
@@ -40,22 +40,22 @@ while {!charge_ufo} do {
 	_lum_fulg_w setLightIntensity _intens_vf;
 	_lum_fulg_w setLightBrightness _intens_vf;
 
-	sleep 0.05;
+	uiSleep 0.05;
 };
 _lum_fulg_w setLightFlareSize 100;
 {deleteVehicle _x} foreach _sat_lit;
-sleep 0.5;
+uiSleep 0.5;
 _lum_fulg_w setLightFlareSize 0;
 _lum_fulg_w setLightIntensity 0;
 _lum_fulg_w setLightBrightness 0;
 _lum_fulg_w setLightBrightness 200;
 
-sleep 0.3;
+uiSleep 0.3;
 deleteVehicle _lum_fulg_w;
 
 playSound3D [final_boo,"",false,[getpos player # 0,getpos player # 1,1000],10,1,5000];
 _Leaves_Green = "#particlesource" createVehicleLocal (getpos player);
-sleep 2.5;
+uiSleep 2.5;
 _dust_particles = "#particlesource" createVehiclelocal (getPos player);
 _dust_particles setParticleCircle [20,[-5,-5,0]];
 _dust_particles setParticleRandom [1,[0,0,0],[10,10,0],1,0,[0,0,0,0.01],0,0];
@@ -66,8 +66,8 @@ _Leaves_Green setParticleCircle [10,[0,0,0]];
 _Leaves_Green setParticleRandom [0,[0,0,1],[10,10,10],0.2,0.1,[0,0,0,0],0.5,0.5];
 _Leaves_Green setParticleParams [["\A3\data_f\ParticleEffects\Hit_Leaves\Leaves_Green.p3d",1,0,1],"","SpaceObject",1,7,[0,0,1],[-10,-10,5],7,11,5,0.2,[3,0.1],[[1,1,1,1],[1,1,1,1]],[0],1,1,"","",vehicle player];
 _Leaves_Green setDropInterval 0.002;
-[_Leaves_Green] spawn {params ["_sterg"]; sleep 0.5; deleteVehicle _sterg};
-[_dust_particles] spawn {params ["_sterg"]; sleep 0.5; deleteVehicle _sterg};
+[_Leaves_Green] spawn {params ["_sterg"]; uiSleep 0.5; deleteVehicle _sterg};
+[_dust_particles] spawn {params ["_sterg"]; uiSleep 0.5; deleteVehicle _sterg};
 addCamShake [5,4,30];
 
-sleep 3;
+uiSleep 3;

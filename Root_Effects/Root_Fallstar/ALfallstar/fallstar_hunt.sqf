@@ -14,5 +14,5 @@ while {true} do {
 	}  foreach (if (isMultiplayer) then {playableUnits} else {switchableUnits});
 	fallstar_hunt_alias = _allunits call BIS_fnc_selectRandom;
 	publicVariable "fallstar_hunt_alias"; 
-	sleep 60;
+	uiSleep 60;
 };

@@ -25,6 +25,6 @@ _en_cloud setParticleRandom [0.5,[0.3,0.3,1],[0,0,0.3],0.5,0,[0,0,0,0],0,0];
 _en_cloud setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1],"","Billboard",1,0.5,[0,0,0],[_flow select 0,_flow select 1,_flow select 2],1,10.5,7.9,0.0001,[3,1,0.1],[[1,1,1,1],[1,1,1,1],[1,1,1,0]],[1],0,0,"","",_tgt_casp];
 _en_cloud setDropInterval 0.03;
 
-sleep 0.5;
+uiSleep 0.5;
 deleteVehicle _en_field;
 deleteVehicle _en_cloud;

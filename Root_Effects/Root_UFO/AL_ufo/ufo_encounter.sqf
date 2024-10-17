@@ -15,5 +15,5 @@ while {ufoencounter} do {
 		case "cross": {[[_ini_poz],"\Root_Effects\Root_UFO\AL_ufo\ufo_cross.sqf"] remoteExec ["execvm"]};
 		case "jump": {[[_ini_poz],"\Root_Effects\Root_UFO\AL_ufo\ufo_charging_SFX.sqf"] remoteExec ["execvm"]};
 	};
-	sleep _freq;
+	uiSleep _freq;
 }

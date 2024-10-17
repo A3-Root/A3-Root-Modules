@@ -24,9 +24,9 @@ while {alive _electr_viz} do
 		_x setDamage _damage_ai;
 		_x doMove _pos_run;
 		_x setSkill ["commanding", 1];
-		sleep 0.1; };
+		uiSleep 0.1; };
 		} forEach _AI_units;
 	};
 	
-	sleep 30;
+	uiSleep 30;
 };

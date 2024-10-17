@@ -32,7 +32,7 @@ if (_noseize == true) exitWith {};
 	_handle < 0
 	} do {
 	_priority = _priority + 1;
-	sleep 0.01;
+	uiSleep 0.01;
 	};
 	_handle ppEffectEnable true;
 	_handle ppEffectAdjust _effect;
@@ -63,6 +63,6 @@ if (_noseize == true) exitWith {};
 	ppEffectDestroy _handle;
 };
 
-sleep 4;
+uiSleep 4;
 
 playsound "tiuit";

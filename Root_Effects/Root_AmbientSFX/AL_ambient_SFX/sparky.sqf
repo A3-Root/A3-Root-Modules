@@ -21,8 +21,8 @@ while {!isNull _lamp} do
 	{
 		_pauza_intre_sclipiri = 0.1+ (random 2);
 		[[_lamp,_pauza_intre_sclipiri,_altitude],"\Root_Effects\Root_AmbientSFX\AL_ambient_SFX\spark_effect.sqf"] remoteExec ["execvm"];
-		sleep _pauza_intre_sclipiri;
+		uiSleep _pauza_intre_sclipiri;
 		_nr=_nr+1;
 	};
-	sleep _sparksdelay;
+	uiSleep _sparksdelay;
 };

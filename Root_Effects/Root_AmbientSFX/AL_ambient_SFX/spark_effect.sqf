@@ -34,7 +34,7 @@ if (_spark_type=="orange") then
 	_scantei_spark setDropInterval _drop;
 
 	_lamp say3D [_sparky_sun, 350];
-	sleep _paz_emit;
+	uiSleep _paz_emit;
 	deleteVehicle _scantei_spark;
 } else
 	{
@@ -43,7 +43,7 @@ if (_spark_type=="orange") then
 		_scantei_spark setParticleParams [["\A3\data_f\proxies\muzzle_flash\muzzle_flash_silencer.p3d", 1, 0, 1], "", "SpaceObject", 1, 1+(random 2), [0, 0,_spark_poz_rel], [0, 0, 0], 0, 20, 7.9, 0, [0.3,0.3,0.05], [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 0]], [0.08], 1, 0, "", "", _lamp,0,true,0.3,[[0,0,0,0]]];
 		_scantei_spark setDropInterval 0.001;	
 		_lamp say3D [_sparky_sun, 350];
-		sleep 0.1 +(random 0.4);
+		uiSleep 0.1 +(random 0.4);
 		deleteVehicle _scantei_spark;
 	};
 };

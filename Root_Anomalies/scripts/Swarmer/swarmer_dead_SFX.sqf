@@ -13,13 +13,13 @@ _roi_SFX setParticleParams [["\A3\animals_f\fly.p3d",1,0,1,1],"","SpaceObject",1
 _roi_SFX setDropInterval 0.05;
 _hive_poz = getPosATL _stup;
 playSound3D ["\Root_Anomalies\Root_Swarmer\sounds\roi_mort.ogg", "", false, [_hive_poz # 0, _hive_poz # 1, 10], 5, 5, 1];
-sleep 5;
+uiSleep 5;
 _decr = 10;
 _drop_var = 0.01;
 while {_decr >0} do
 {
 	_roi_SFX setDropInterval _drop_var;
-	sleep 1;
+	uiSleep 1;
 	_drop_var = _drop_var+0.05;
 	_decr = _decr-1;
 };

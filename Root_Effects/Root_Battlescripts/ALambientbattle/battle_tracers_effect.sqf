@@ -48,19 +48,19 @@ while {al_tracer} do
 			_li_tracer setLightIntensity 5000;
 			_li_tracer setLightAttenuation [_range_trace,0,100,0,_range_trace,_range_trace]; 			
 
-			sleep 0.2 + (random 1);
+			uiSleep 0.2 + (random 1);
 			[_trasor,_life_time_tras,_li_tracer] spawn 
 			{
 				_obj_tras			= _this select 0;
 				_life_time_tras_del = _this select 1;
 				_li_tracer			= _this select 2;
-				sleep _life_time_tras_del;
+				uiSleep _life_time_tras_del;
 				deleteVehicle _obj_tras;
 				deleteVehicle _li_tracer;
 			};			
 		};
 	};
-	sleep 1 + (random 3);	
+	uiSleep 1 + (random 3);	
 	if (!al_tracers_sunet_play) then 
 	{
 		[_tracer_object_name,["ground_air",2000]] remoteExec ["say3d"];

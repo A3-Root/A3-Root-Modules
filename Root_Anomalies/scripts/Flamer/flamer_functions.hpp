@@ -39,7 +39,7 @@ fnc_attk_flamer = {
 	_shoot_dir = (getposasl _flamer vectorFromTo getposasl _tgt_casp) vectorMultiply 15;
 	[_flamer getVariable "_cap_flamer",["foc_initial",500]] remoteExec ["say3d"];
 	[[_flamer,_shoot_dir],"\Root_Anomalies\scripts\Flamer\flamer_plasma_SFX.sqf"] remoteExec ["execVM"];
-	sleep 0.5;
+	uiSleep 0.5;
 	_tip = selectrandom ["04","burned","02","03"];
 	_nearflamer = (ASLToAGL getPosASL _flamer) nearEntities ["CAManBase",5];
 	{
@@ -77,7 +77,7 @@ fnc_attk_flamer = {
 		};
 	} forEach (_nearflamer-[_flamer]);
 	_nearvik = nearestObjects [position _flamer,["CAR","TANK","PLANE","HELICOPTER","Motorcycle","Air"],7,false]; {_x setDamage (damage _x + ( _damage_flamer * 5 ))} forEach _nearvik;
-	sleep 4;
+	uiSleep 4;
 	_flamer setVariable ["atk",false];
 };
 

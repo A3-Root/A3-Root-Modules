@@ -22,7 +22,7 @@ _sortedArr = [];
 			_ball setPosATL _worldPos;
 		};
 	};
-	sleep 0.1;
+	uiSleep 0.1;
 } forEach _unsortedArr;
 
 diag_log "[";

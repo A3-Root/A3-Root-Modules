@@ -7,5 +7,5 @@ while {true} do
 	_allunits = [];
 	{if ((alive _x) && (typeOf _x != "VirtualCurator_F")) then {_allunits pushBack _x};}  foreach (if (isMultiplayer) then {playableUnits} else {switchableUnits});
 	ufo_hunt_alias = selectRandom _allunits; publicVariable "ufo_hunt_alias";
-	sleep 60;
+	uiSleep 60;
 };

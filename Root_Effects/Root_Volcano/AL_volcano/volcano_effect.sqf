@@ -21,9 +21,9 @@ _li_idle setLightFlareMaxDistance 2000;
 _li_idle setLightAmbient[1,0.2,0.1];
 _li_idle setLightColor[1,0.2,0.1];
 
-[_volcano_object] spawn {params ["_volcano_voice"]; while {!isNull _volcano_voice} do {_volcano_voice say3d ["murmur_8",5000]; sleep 60}};
+[_volcano_object] spawn {params ["_volcano_voice"]; while {!isNull _volcano_voice} do {_volcano_voice say3d ["murmur_8",5000]; uiSleep 60}};
 
-[_li_idle] spawn {_luminafoc = _this select 0; while {!isNull _luminafoc} do {_luminafoc setLightBrightness (59 + random(40)); _luminafoc setLightAttenuation [(1.5 + random(0.5)), (90 + random(10)), (290 + random(10)), 1, (150 + random(100)),1500]; sleep 0.1}; deletevehicle _luminafoc};
+[_li_idle] spawn {_luminafoc = _this select 0; while {!isNull _luminafoc} do {_luminafoc setLightBrightness (59 + random(40)); _luminafoc setLightAttenuation [(1.5 + random(0.5)), (90 + random(10)), (290 + random(10)), 1, (150 + random(100)),1500]; uiSleep 0.1}; deletevehicle _luminafoc};
 
 _coloana_fum = "#particlesource" createVehicleLocal getPos _volcano_object;
 _coloana_fum setParticleCircle [0,[0,0,0]];

@@ -32,7 +32,5 @@ class CfgPatches {
     };
 };
 
-#include "CfgContext.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVersioning.hpp"
-#include "gui.hpp"

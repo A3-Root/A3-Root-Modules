@@ -33,7 +33,7 @@ class CfgFactionClasses {
 class CfgFunctions {
 	class ROOT {
 		tag="Root_Anomalies";
-		class Core {
+		class Anomalies {
 			file="\Root_Anomalies\functions";	
 			class burper{};
 			class farmer{};

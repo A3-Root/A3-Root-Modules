@@ -57,7 +57,7 @@ if (_slide_vel>0) then
 		_al_dependent	=_this select 3;
 		_al_poz_ini		=_this select 4;
 		
-		_sleep_slide = 0.01;
+		_uiSleep_slide = 0.01;
 		_dir_slide	= getDir _al_slide;
 		
 		while {true} do 
@@ -70,7 +70,7 @@ if (_slide_vel>0) then
 					_incr=_incr+_al_slide_vel;
 					_new_poz=[_al_poz_ini, _incr, _dir_slide] call BIS_fnc_relPos;
 					_al_slide setposATL _new_poz;
-					uiSleep _sleep_slide;
+					uiSleep _uiSleep_slide;
 				};
 				
 				while {_incr>0} do 
@@ -78,7 +78,7 @@ if (_slide_vel>0) then
 					_incr=_incr-_al_slide_vel;
 					_new_poz=[_al_poz_ini, _incr, _dir_slide] call BIS_fnc_relPos;
 					_al_slide setposATL _new_poz;			
-					uiSleep _sleep_slide;
+					uiSleep _uiSleep_slide;
 				};
 			};	
 			waitUntil {(player distance _al_slide) < _al_dependent};
@@ -97,7 +97,7 @@ if (_bounce_speed>0) then
 		_al_poz_ini			 =_this select 4;
 		_al_alt_obj			 =_this select 5;
 		
-		_sleep_bounce = 0.01;
+		_uiSleep_bounce = 0.01;
 		_alt_max = ceil (_al_alt_obj + _al_bounce_distance);
 		_alt_min = ceil (_al_alt_obj - _al_bounce_distance);
 
@@ -110,14 +110,14 @@ if (_bounce_speed>0) then
 				{
 				 _fct_float =_fct_float + _al_rock_bounce_speed;
 				 _al_rock_loc setPosATL [_al_poz_ini select 0, _al_poz_ini select 1, _fct_float];
-				 uiSleep _sleep_bounce;
+				 uiSleep _uiSleep_bounce;
 				};
 				
 				while {_fct_float>_alt_min} do
 				{
 				 _fct_float =_fct_float - _al_rock_bounce_speed;
 				 _al_rock_loc setPosATL [_al_poz_ini select 0, _al_poz_ini select 1, _fct_float];
-				 uiSleep _sleep_bounce;
+				 uiSleep _uiSleep_bounce;
 				};		
 			};
 			waitUntil {(player distance _al_rock_loc) < _al_dist_dependent};
